@@ -1,2 +1,1 @@
-Primer repositorio de GUIMO
-Funciona esto?
+Dentro de este repositorio esta diseñado para subir toda la documentacion y en proyecto referente a Adgamus.
