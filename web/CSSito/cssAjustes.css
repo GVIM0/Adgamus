@@ -1,0 +1,267 @@
+body{
+    background-color: #201E30;
+    margin: 0;
+    padding: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1693' height='1693' viewBox='0 0 200 200'%3E%3Cg fill='none' stroke='%23F9CC11' stroke-width='0.1' stroke-opacity='0.61'%3E%3Crect x='-40' y='40' width='75' height='75'/%3E%3Crect x='-35' y='45' width='65' height='65'/%3E%3Crect x='-30' y='50' width='55' height='55'/%3E%3Crect x='-25' y='55' width='45' height='45'/%3E%3Crect x='-20' y='60' width='35' height='35'/%3E%3Crect x='-15' y='65' width='25' height='25'/%3E%3Crect x='-10' y='70' width='15' height='15'/%3E%3Crect x='-5' y='75' width='5' height='5'/%3E%3Crect width='35' height='35'/%3E%3Crect x='5' y='5' width='25' height='25'/%3E%3Crect x='10' y='10' width='15' height='15'/%3E%3Crect x='15' y='15' width='5' height='5'/%3E%3Crect x='40' width='75' height='75'/%3E%3Crect x='45' y='5' width='65' height='65'/%3E%3Crect x='50' y='10' width='55' height='55'/%3E%3Crect x='55' y='15' width='45' height='45'/%3E%3Crect x='60' y='20' width='35' height='35'/%3E%3Crect x='65' y='25' width='25' height='25'/%3E%3Crect x='70' y='30' width='15' height='15'/%3E%3Crect x='75' y='35' width='5' height='5'/%3E%3Crect x='40' y='80' width='35' height='35'/%3E%3Crect x='45' y='85' width='25' height='25'/%3E%3Crect x='50' y='90' width='15' height='15'/%3E%3Crect x='55' y='95' width='5' height='5'/%3E%3Crect x='120' y='-40' width='75' height='75'/%3E%3Crect x='125' y='-35' width='65' height='65'/%3E%3Crect x='130' y='-30' width='55' height='55'/%3E%3Crect x='135' y='-25' width='45' height='45'/%3E%3Crect x='140' y='-20' width='35' height='35'/%3E%3Crect x='145' y='-15' width='25' height='25'/%3E%3Crect x='150' y='-10' width='15' height='15'/%3E%3Crect x='155' y='-5' width='5' height='5'/%3E%3Crect x='120' y='40' width='35' height='35'/%3E%3Crect x='125' y='45' width='25' height='25'/%3E%3Crect x='130' y='50' width='15' height='15'/%3E%3Crect x='135' y='55' width='5' height='5'/%3E%3Crect y='120' width='75' height='75'/%3E%3Crect x='5' y='125' width='65' height='65'/%3E%3Crect x='10' y='130' width='55' height='55'/%3E%3Crect x='15' y='135' width='45' height='45'/%3E%3Crect x='20' y='140' width='35' height='35'/%3E%3Crect x='25' y='145' width='25' height='25'/%3E%3Crect x='30' y='150' width='15' height='15'/%3E%3Crect x='35' y='155' width='5' height='5'/%3E%3Crect x='200' y='120' width='75' height='75'/%3E%3Crect x='40' y='200' width='75' height='75'/%3E%3Crect x='80' y='80' width='75' height='75'/%3E%3Crect x='85' y='85' width='65' height='65'/%3E%3Crect x='90' y='90' width='55' height='55'/%3E%3Crect x='95' y='95' width='45' height='45'/%3E%3Crect x='100' y='100' width='35' height='35'/%3E%3Crect x='105' y='105' width='25' height='25'/%3E%3Crect x='110' y='110' width='15' height='15'/%3E%3Crect x='115' y='115' width='5' height='5'/%3E%3Crect x='80' y='160' width='35' height='35'/%3E%3Crect x='85' y='165' width='25' height='25'/%3E%3Crect x='90' y='170' width='15' height='15'/%3E%3Crect x='95' y='175' width='5' height='5'/%3E%3Crect x='120' y='160' width='75' height='75'/%3E%3Crect x='125' y='165' width='65' height='65'/%3E%3Crect x='130' y='170' width='55' height='55'/%3E%3Crect x='135' y='175' width='45' height='45'/%3E%3Crect x='140' y='180' width='35' height='35'/%3E%3Crect x='145' y='185' width='25' height='25'/%3E%3Crect x='150' y='190' width='15' height='15'/%3E%3Crect x='155' y='195' width='5' height='5'/%3E%3Crect x='160' y='40' width='75' height='75'/%3E%3Crect x='165' y='45' width='65' height='65'/%3E%3Crect x='170' y='50' width='55' height='55'/%3E%3Crect x='175' y='55' width='45' height='45'/%3E%3Crect x='180' y='60' width='35' height='35'/%3E%3Crect x='185' y='65' width='25' height='25'/%3E%3Crect x='190' y='70' width='15' height='15'/%3E%3Crect x='195' y='75' width='5' height='5'/%3E%3Crect x='160' y='120' width='35' height='35'/%3E%3Crect x='165' y='125' width='25' height='25'/%3E%3Crect x='170' y='130' width='15' height='15'/%3E%3Crect x='175' y='135' width='5' height='5'/%3E%3Crect x='200' y='200' width='35' height='35'/%3E%3Crect x='200' width='35' height='35'/%3E%3Crect y='200' width='35' height='35'/%3E%3C/g%3E%3C/svg%3E");
+}
+/*ESTILO*/
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+p{
+    font-weight: bold;
+    font-family: sans-serif;
+
+}
+/*AJUSTES*/
+
+.contenedor1{
+    transform: translateY(-50%);
+    min-height: 150px;
+    max-height: 220px;
+    min-width: 220px;
+    max-width: 280px;
+    display: flex;
+    justify-content: center;
+    /*align-items: center;*/
+    background: transparent;
+    /*background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);*/
+    color: #fff;
+}
+
+/*BOTONES*/
+
+.divBotones{
+    transform: translateY(-50%);
+    min-height: 100px;
+    max-height: 150px;
+    min-width: 150px;
+    max-width: 230px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    /*background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);*/
+    color: #fff;
+}
+
+.divBotones .botones{
+    display: inline-block;
+    padding: 7px 10px;
+    height: 20%;
+    width: 84%;
+    outline: 0;
+    border: 0;
+    border-radius: 0;
+    background: linear-gradient(to top, #CD5BFF, #5F04FE);
+    color: #fff;
+    /*font-size: 1em;*/
+    border-radius: 12px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    cursor: pointer;
+}
+.divBotones .botones:hover{
+    margin-top: 3px;
+    background: #CD5BFF;
+}
+
+/*LISTA*/
+
+.divContact{
+    transform: translateY(-50%);
+    min-height: 160px;
+    max-height: 230px;
+    min-width: 180px;
+    max-width: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    /*background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);*/
+    color: #fff;
+}
+
+.divContact .listas{
+    position: absolute;
+    left: 20%;
+    transform: translateY(-50%);
+    transform: translateX(-20%);
+    min-height: 150px;
+    max-height: 220px;
+    min-width: 150px;
+    max-width: 230px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    /*background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);*/
+}
+a{
+    font-family: sans-serif;
+    color: #fff;
+}
+a:hover{
+    color: #CD5BFF;
+}
+/*IMAGEN*/
+.imagen{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/*COMBOS*/
+
+.contenedor1 .combitos{
+    /*ESTRUCTURA*/
+    position: absolute;
+    top: 25%;
+    left: 15%;
+    transform: translateY(-50%);
+    transform: translateX(-20%);
+    min-height: 100px;
+    max-height: 170px;
+    min-width: 260px;
+    max-width: 310px;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    background: transparent;
+
+    /*ESTILO*/
+    padding: 0;
+    margin: 0;
+}
+.contenedor1 .combitos select{
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+/*Eliminar flecha por defecto*/
+.contenedor1 .combitos select::-ms-expand {
+    display: none;
+}
+.contenedor1 .combitos select{
+    display: inline-block;
+    width: 100%;
+    cursor: pointer;
+    padding: 7px 10px;
+    height: 42px;
+    outline: 0;
+    border: 0;
+    border-radius: 0;
+    background: linear-gradient(to top, #CD5BFF, #5F04FE);
+    color: #fff;
+    font-size: 1em;
+    color: #fff;
+    font-family:
+        'Quicksand', sans-serif;
+    font-weight: bold;
+    border-radius: 12px;
+    position: relative;
+    transition: all 0.25s ease;
+}
+.contenedor1 .combitos select:hover{
+    background: #CD5BFF;
+}
+
+.contenedor1 .combitos i{
+    position: absolute;
+    right: 20px;
+    top: calc(50% - 13px);
+    width: 16px;
+    height: 16px;
+    display: block;
+    border-left:4px solid #fff;
+    border-bottom:4px solid #fff;
+    transform: rotate(-45deg); /* Giramos el cuadrado */
+    transition: all 0.25s ease;
+    padding: 0;
+    margin: 0;
+
+}
+.contenedor1 .combitos :hover i{
+    margin-top: 10px;
+}
+.contenedor1 .combitos select option {
+    background:#CD5BFF;
+    font-family:
+        'Quicksand', sans-serif;
+    outline: 0;
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+.contenedor1 .combitos select option:hover {
+    background:#CD5BFF;
+}
+
+
+/*SWITCH*/
+
+.contenedor1 .contenedor{
+    position: absolute;
+    top: 30%;
+    left: 20%;
+    transform: translateY(-50%);
+    transform: translateX(-20%);
+    min-height: 100px;
+    max-height: 170px;
+    min-width: 200px;
+    max-width: 280px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    /*background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);*/
+}
+.contenedor .switch{
+    height: 80px;
+    background-image: linear-gradient(to top, #CD5BFF 0%, #5F04FE 100%);
+    padding: 0 1.5rem;
+    border-radius: 0.8rem;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+.contenedor .switch .input{
+    display: none;
+}
+.contenedor .switch .rail{
+    position: relative;
+    width: 90px;
+    height: 30px;
+    background-color: #fff;
+    border-radius: 3rem;
+}
+.contenedor .switch .rail .circle{
+    display: block;
+    width: 36px;
+    height: 36px;
+    background-image: linear-gradient(to right, #990000, purple);
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    transition: transform 0.4s;
+}
+.contenedor .switch .indicador{
+    width: 15px;
+    height: 15px;
+    background-color: #fff;
+    border-radius: 50%;
+    margin-left: 1.5rem;
+    transition: 0.4s;
+}
+.contenedor .switch .input:checked ~ .rail .circle{
+    transform: translate(54px, -50%);
+}
+.contenedor .switch .input:checked ~ .indicador{
+    background-color: #00ff00;
+}
+

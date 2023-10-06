@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Form Register | Gy-Graph</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="Imagenes/iconoSuperior.png">
+        <link rel="stylesheet" type="text/css" href="CSSito/cssRegister.css">
+        <link rel="stylesheet" type="text/css" href="CSSito/cssRegresar.css">
+
+        <script>
+            function confirmarPassword() {
+                var password = document.getElementsByName("contrasenia")[0].value;
+                var confirmarPassword = document.getElementsByName("confirmcontra")[0].value;
+                var mensaje = document.getElementById('mensaje-password');
+                var boton = document.getElementsByTagName("input")[3];
+
+                if (password !== confirmarPassword) {
+                    mensaje.innerHTML = "Las contraseñas no coinciden";
+                    mensaje.style.color = "red";
+                    boton.disabled = true;
+                } else {
+                    mensaje.innerHTML = "Las contraseñas coinciden";
+                    mensaje.style.color = "green";
+                    boton.disabled = false;
+                }
+            }
+
+            function mostrarPassword(input) {
+                var tipo = input.getAttribute("type");
+                if (tipo === "password") {
+                    input.setAttribute("type", "text");
+                } else {
+                    input.setAttribute("type", "password");
+                }
+            }
+            function validacion() {
+                usuario = document.getElementById("Usuario");
+                contrasenia = document.getElementById("Contrasenia");
+                confirm = document.getElementById("confcontra");
+                submi = document.getElementById("sub");
+                if (usuario !== null || contrasenia !== null || confirm !== null) {
+                    sub.false;
+                } else {
+                    sub.true;
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <audio id="Sonido" name="Sonido" loop> 
+            <source src="Audio/M_Lobby.mp3" type="audio/mpeg"></source>
+        </audio>
+        <button class="ButtonRegresar" onclick="location.href = 'index.html';">
+        </button>
+
+
+        <div class="login-box">
+            <img class="avatar" src="Imagenes/logoAlien.png" alt="IconKeyBoard">
+            <h1>Registro</h1>
+            <form action="JSP/Register.jsp" method="post" name="altas">
+                <!--Usarname-->
+                <label for="password" id="Usuario">Usuario
+                    <span class="icon" onclick="mostrarPassword(document.getElementsByName('nombre')[0])">
+                        <ion-icon name="person-circle-outline"></ion-icon>
+                    </span>
+                </label> 
+                <input type="text" name="nombre" placeholder="Ingresar usuario">
+                <!--Password-->
+                <label for="password" id="Contrasenia">Contraseña
+                    <span class="icon" onclick="mostrarPassword(document.getElementsByName('contrasenia')[0])">
+                        <ion-icon name="lock-closed-outline"></ion-icon>
+                    </span>
+                </label>
+                <input type="password" name="contrasenia" placeholder="Ingresar contraseña">
+                <!--Confirmar-->
+                <label for="password" id="confcontra">Confirmar Contraseña
+                    <span class="icon" onclick="mostrarPassword(document.getElementsByName('confirmcontra')[0])">
+                        <ion-icon name="lock-closed-outline"></ion-icon>
+                    </span>
+                </label>
+                <input type="password" name="confirmcontra" placeholder="Ingresar contraseña nuevamente" onkeyup="confirmarPassword()">
+                <p id="mensaje-password"></p>
+                <input type="submit" value="Crear cuenta"  id="sub" disabled>
+                <a href="Login.html">¿Ya tienes una cuenta?</a>
+            </form>
+        </div>
+
+        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    </body>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+
+                    var xhr = new XMLHttpRequest();
+                    xhr.open("GET", "JSP/Confi.jsp", true);
+                    xhr.onreadystatechange = function () {
+                        if (xhr.readyState === 4 && xhr.status === 200) {
+                            var response = JSON.parse(xhr.responseText);
+                            var musica = response.Music;
+                            var Sonidito = document.getElementById("Sonido");
+                            console.log(musica);
+                            if (musica === "Activado") {
+                                Sonidito.play();
+                            } else {
+                                Sonidito.pause();
+                            }
+                        } else {
+                            console.log("Error en la solicitud AJAX");
+                        }
+                    };
+                    xhr.send();
+
+                      var xhr2 = new XMLHttpRequest();
+            xhr2.open("GET", "JSP/Var_Tuto.jsp", true);
+            xhr2.onreadystatechange = function () {
+                if (xhr2.readyState === 4 && xhr2.status === 200) {
+                    var response = JSON.parse(xhr2.responseText);
+                    var Tut1 = response.T1;
+                    var Tutr1 = response.Itr1;
+                    console.log(Tut1);
+                    console.log(Tutr1);
+                    if (Tut1 === "Si" && Tutr1 === "Si") {
+                        
+                        Swal.fire({
+                            title: 'Bienvenida',
+                            html: '<div style="text-align: center;">\n\
+                              Entonces ¿No tiene una cuenta?.Rellene los siguientes campos\n\
+                                <br>Y por favor asegurese de que ambas contraseñas sean iguales para evitar incovenientes</div>',
+                            icon: 'info',
+                            confirmButtonText: 'Ok',
+                            confirmButtonColor: '#000',
+                            background: 'linear-gradient(-45deg, #7e03aa, #0033ff, #8000ff)',
+                            color: '#fff',
+                            allowOutsideClick: true,
+                            allowEscapeKey: true,
+                            allowEnterKey: true
+                        });
+                        
+                        var Tutr1 = "No";
+                            $.ajax({
+                            url: "JSP/SalTu.jsp",
+                                    method: "POST",
+                                    data: {varTR: Tutr1},
+                                    success: function (response) {
+                                    console.log(response);
+                                    },
+                                    error: function () {
+                                    alert("Error al enviar la variable al JSP");
+                                    }
+                            });
+                    }
+                    
+                } else {
+                    console.log("Error en la solicitud AJAX");
+                }
+            };
+            xhr2.send();
+
+              
+
+    </script>
+</html>

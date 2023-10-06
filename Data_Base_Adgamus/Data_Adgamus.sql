@@ -1,1 +1,0 @@
-# Base de datos para el proyecto Adgamus by GUIMO (proximamente)

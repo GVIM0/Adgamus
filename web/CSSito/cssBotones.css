@@ -1,0 +1,467 @@
+.btn2, .btn1, .btn3, .btn4, .btn5, .btn6{
+    --border-color: linear-gradient(-45deg, #ffae00, #7e03aa, #00fffb);
+    --border-width: .125em;
+    --curve-size: .5em;
+    --blur: 30px;
+    --bg: #080312;
+    --color: #afffff;
+    color: var(--color);
+    isolation: isolate;
+    display: inline-grid;
+    place-content: center;
+    padding: .5em 1.5em;
+    font-size: 17px;
+    border: 0;
+    text-transform: uppercase;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, .6);
+    position: absolute;
+    grid-area: btn22;
+    clip-path: polygon(
+        /* Top-left */
+        0% var(--curve-size),
+
+        var(--curve-size) 0,
+        /* top-right */
+        100% 0,
+        100% calc(100% - var(--curve-size)),
+
+        /* bottom-right 1 */
+        calc(100% - var(--curve-size)) 100%,
+        /* bottom-right 2 */
+        0 100%);
+    transition: color 250ms;
+}
+
+.Centro{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.oval-popup .swal2-popup {
+  border-radius: 50px !important;
+}
+
+.oval-content {
+  padding: 20px;
+}
+
+.oval-dialog {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.custom-btn {
+    width: 130px;
+    height: 40px;
+    color: #fff;
+    border-radius: 5px;
+    padding: 10px 25px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 500;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: absolute;
+    display: inline-block;
+    box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+        7px 7px 20px 0px rgba(0,0,0,.1),
+        4px 4px 5px 0px rgba(0,0,0,.1);
+    outline: none;
+}
+
+.btn-9 {
+    border: none;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    text-align: center;
+}
+.btn-9:after {
+    position: absolute;
+    content: " ";
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #1fd1f9;
+    background-image: linear-gradient(315deg, #1fd1f9 0%, #b621fe 74%);
+    transition: all 0.3s ease;
+}
+.btn-9:hover {
+    background: transparent;
+    box-shadow:  4px 4px 6px 0 rgba(255,255,255,.5),
+        -4px -4px 6px 0 rgba(116, 125, 136, .2),
+        inset -4px -4px 6px 0 rgba(255,255,255,.5),
+        inset 4px 4px 6px 0 rgba(116, 125, 136, .3);
+    color: #fff;
+}
+.btn-9:hover:after {
+    -webkit-transform: scale(2) rotate(180deg);
+    transform: scale(2) rotate(180deg);
+    box-shadow:  4px 4px 6px 0 rgba(255,255,255,.5),
+        -4px -4px 6px 0 rgba(116, 125, 136, .2),
+        inset -4px -4px 6px 0 rgba(255,255,255,.5),
+        inset 4px 4px 6px 0 rgba(116, 125, 136, .3);
+}
+
+
+#header{
+    grid-area: heder;
+}
+.Centro{
+    grid-area: centroo;
+}
+.Bajo{
+    grid-area: bajoo;
+}
+
+.btn1::after,.btn1::before,
+.btn2:after,.btn2:before,
+.btn3:after,.btn3:before,
+.btn4:after,.btn4:before,
+.btn5:after,.btn5:before,
+.btn6:after,.btn6:before
+{
+    content: '';
+    position: absolute;
+    inset: 0;
+}
+
+.btn1::before,
+.btn2::before,
+.btn3::before,
+.btn4::before,
+.btn5:before,
+.btn6:before
+{
+    background: var(--border-color);
+    background-size: 300% 300%;
+    animation: move-bg7234 5s ease infinite;
+    z-index: -2;
+}
+
+@keyframes move-bg7234 {
+    0% {
+        background-position: 31% 0%
+    }
+
+    50% {
+        background-position: 70% 100%
+    }
+
+    100% {
+        background-position: 31% 0%
+    }
+}
+
+.btn1::after,
+.btn2::after,
+.btn3::after,
+.btn4::after,
+.btn5::after,
+.btn6::after
+{
+    background: var(--bg);
+    z-index: -1;
+    clip-path: polygon(
+        /* Top-left */
+        var(--border-width)
+        calc(var(--curve-size) + var(--border-width) * .5),
+
+        calc(var(--curve-size) + var(--border-width) * .5) var(--border-width),
+
+        /* top-right */
+        calc(100% - var(--border-width))
+        var(--border-width),
+
+        calc(100% - var(--border-width))
+        calc(100% - calc(var(--curve-size) + var(--border-width) * .5)),
+
+        /* bottom-right 1 */
+        calc(100% - calc(var(--curve-size) + var(--border-width) * .5)) calc(100% - var(--border-width)),
+        /* bottom-right 2 */
+        var(--border-width) calc(100% - var(--border-width)));
+    transition: clip-path 500ms;
+}
+
+.btn1:where(:hover, :focus)::after,
+.btn2:where(:hover, :focus)::after,
+.btn3:where(:hover, :focus)::after,
+.btn4:where(:hover, :focus)::after,
+.btn5:where(:hover, :focus)::after,
+.btn6:where(:hover, :focus)::after
+{
+    clip-path: polygon(
+        /* Top-left */
+        calc(100% - var(--border-width))
+
+        calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5)),
+
+        calc(100% - var(--border-width))
+
+        var(--border-width),
+
+        /* top-right */
+        calc(100% - var(--border-width))
+
+        var(--border-width),
+
+        calc(100% - var(--border-width))
+
+        calc(100% - calc(var(--curve-size) + var(--border-width) * .5)),
+
+        /* bottom-right 1 */
+        calc(100% - calc(var(--curve-size) + var(--border-width) * .5))
+        calc(100% - var(--border-width)),
+
+        /* bottom-right 2 */
+        calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5))
+        calc(100% - var(--border-width)));
+    transition: 200ms;
+}
+
+.btn1:where(:hover, :focus),
+.btn2:where(:hover, :focus),
+.btn3:where(:hover, :focus),
+.btn4:where(:hover, :focus),
+.btn5:where(:hover, :focus),
+.btn6:where(:hover, :focus){
+    color: #fff;
+}
+
+.btn {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 13rem;
+    height: 3rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-size: 300% 300%;
+    backdrop-filter: blur(1rem);
+    border-radius: 5rem;
+    transition: 0.5s;
+    animation: gradient_301 5s ease infinite;
+    border: double 4px transparent;
+    background-image: linear-gradient(#212121, #212121),  linear-gradient(137.48deg, #ffdb3b 10%,#FE53BB 45%, #8F51EA 67%, #0044ff 87%);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+
+}
+
+#container-stars {
+    position: fixed;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    transition: 0.5s;
+    backdrop-filter: blur(1rem);
+    border-radius: 5rem;
+    grid-area: container_starss;
+}
+
+strong {
+    z-index: 2;
+    font-family: 'Avalors Personal Use';
+    font-size: 12px;
+    letter-spacing: 5px;
+    color: #FFFFFF;
+    text-shadow: 0 0 4px white;
+}
+
+#glow {
+    position: absolute;
+    display: flex;
+    width: 12rem;
+}
+
+.circle {
+    width: 100%;
+    height: 30px;
+    filter: blur(2rem);
+    animation: pulse_3011 4s infinite;
+    z-index: -1;
+}
+
+.circle:nth-of-type(1) {
+    background: rgba(254, 83, 186, 0.636);
+}
+
+.circle:nth-of-type(2) {
+    background: rgba(142, 81, 234, 0.704);
+}
+
+.btn:hover #container-stars {
+    z-index: 1;
+    background-color: #212121;
+}
+
+
+.btn:active {
+    border: double 4px #FE53BB;
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    animation: none;
+}
+
+.btn:active .circle {
+    background: #FE53BB;
+}
+
+#stars {
+    position: absolute;
+    background: transparent;
+    width: 200rem;
+    height: 200rem;
+    grid-area: starss;
+}
+
+#stars::after {
+    content: "";
+    position: absolute;
+    top: -10rem;
+    left: -100rem;
+    width: 100%;
+    height: 100%;
+    animation: animStarRotate 90s linear infinite;
+}
+
+#stars::after {
+    background-image: radial-gradient(#ffffff 1px, transparent 1%);
+    background-size: 50px 50px;
+}
+
+#stars::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -50%;
+    width: 170%;
+    height: 500%;
+    animation: animStar 60s linear infinite;
+}
+
+#stars::before {
+    background-image: radial-gradient(#ffffff 1px, transparent 1%);
+    background-size: 50px 50px;
+    opacity: 0.5;
+}
+
+@keyframes animStar {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-135rem);
+    }
+}
+
+@keyframes animStarRotate {
+    from {
+        transform: rotate(360deg);
+    }
+
+    to {
+        transform: rotate(0);
+    }
+}
+
+@keyframes gradient_301 {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes pulse_3011 {
+    0% {
+        transform: scale(0.75);
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
+    }
+
+    70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+    }
+
+    100% {
+        transform: scale(0.75);
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+    }
+}
+
+.titulo{
+    width: 536px;
+    height: 107px;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    grid-area: tituloo;
+}
+body{
+    background-color: #201E30;
+    margin: 0;
+    padding: 0;
+}
+
+.Contenedor{
+    height: 100vh;
+    display: grid;
+
+    grid-template-columns: 1fr;
+    grid-template-rows: 2fr 1fr 2fr;
+    grid-template-areas:
+        "heder"
+        "centroo"
+        "bajoo";
+}
+
+/*@media (max-width: 1000px){
+    .Contenedor{
+        grid-template-columns: 2fr 2fr;
+        grid-template-rows: 2fr 2fr 2fr 2fr 2fr 2fr;
+        grid-template-areas:
+            "Text11 Text22"
+            "Text33 Text44"
+            "Text55 Text66"
+            "Text77 Text88"
+            "Text99 Text100"
+            "Text111 Text122";
+    }
+}
+@media(max-width: 600px){
+    .Contenedor{
+        grid-template-columns: 2fr;
+        grid-template-rows: 2fr 2fr 2fr 2fr 2fr 2fr 2fr 2fr 2fr 2fr 2fr 2fr ;
+        grid-template-areas:
+            "Text11"
+            "Text22"
+            "Text33"
+            "Text44"
+            "Text55"
+            "Text66"
+            "Text77"
+            "Text88"
+            "Text99"
+            "Text100"
+            "Text111"
+            "Text122";
+    }
+} */
