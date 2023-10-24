@@ -5,11 +5,6 @@ function App() {
   return (
     <div>
       <header>
-        <div className="header__superior">
-          {/* <div className="logo">
-            <img src="IMG/AdgamusLogo1.png" alt="Adgamus Logo" />
-          </div> */}
-        </div>
         <div className="container__menu">
           <div className="menu">
             <input type="checkbox" id="check__menu" />
@@ -91,7 +86,7 @@ function App() {
         </section>
       </main>
       <footer className="footer">
-        <div className="container">
+        <div className="containerF">
           <div className="title_section">
             <h2>Contáctenos</h2>
           </div>
@@ -100,7 +95,7 @@ function App() {
             <a href="#"><i className="fa-brands fa-instagram"></i></a>
             <a href="#"><i className="fa-solid fa-envelope"></i></a>
           </div>
-          <div className="container">
+          <div className="containerF">
             <p className="copy">
               2023 Adgamus / Todos los derechos reservados
             </p>
