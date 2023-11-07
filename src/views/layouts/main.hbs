@@ -12,6 +12,7 @@
 
     <!-- Fontawesome Link -->
     <link href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="./CSS/EstiloCSS.css"/>
  
   </head>
   <body class="bg-gray-200">
@@ -52,6 +53,25 @@
     
   
   {{{body}}}
-  
+  {{#if name}}
+  <footer class="footer">
+            <div class="container">
+                <!--<p>Página diseñada por @0m1n, @AbsorbedSun, @MAPE, @Garven092 </p>-->
+                <div class="title_section">
+                    <h2>Contáctenos</h2>
+                </div>
+                <div class="redes_sociales">
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-solid fa-envelope"></i></a>
+                </div>
+                <div class="container">
+                    <p class="copy">
+                        ©2023 Adgamus / Todos los derechos reservados
+                    </p>
+                </div>
+            </div>
+        </footer>
+  {{/if}}
   </body>
 </html>

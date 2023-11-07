@@ -15,6 +15,7 @@ app.engine('.hbs', engine({
 extname: '.hbs',
 }));
 app.set('view engine', 'hbs');
+app.use(express.static(__dirname + "/src"));
 
 app.use(bodyParser.urlencoded({
     extended:true
@@ -25,8 +26,8 @@ app.use(myconnection(mysql,{
     host: 'localhost',
     user: 'root',
     password: 'n0m3l0',
-    port: '3308',
-    database:'adgamus'
+    port: '3306',
+    database:'Adgamus'
 }));
 
 app.use(session({ 

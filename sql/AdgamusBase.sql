@@ -24,16 +24,17 @@ USE `Adgamus` ;
 DROP TABLE IF EXISTS `Adgamus`.`Usuario` ;
 
 CREATE TABLE IF NOT EXISTS `Adgamus`.`Usuario` (
-  `idUsuario` INT NOT NULL,
-  `NombreUsuario` VARCHAR(45),
-  `CorreoUsuario` VARCHAR(45),
-  `Contraseña` VARCHAR(45),
-  `Nombre` VARCHAR(45),
-  `Apellido` VARCHAR(45),
-  `Descripcion` VARCHAR(45),
-  `Foto_Perfil` BLOB(1),
-  `Preferencias` VARCHAR(45),
-  PRIMARY KEY (`idUsuario`))
+        `idUsuario` int NOT NULL AUTO_INCREMENT,
+        `NombreUsuario` varchar(45) DEFAULT NULL,
+        `CorreoUsuario` varchar(45) DEFAULT NULL,
+        `Contraseña` varchar(255) DEFAULT NULL,
+        `Nombre` varchar(45) DEFAULT NULL,
+        `Apellido` varchar(45) DEFAULT NULL,
+        `Descripcion` varchar(45) DEFAULT NULL,
+        `Foto_Perfil` tinyblob,
+        `Preferencias` varchar(45) DEFAULT NULL,
+        PRIMARY KEY (`idUsuario`)
+    ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb3;
 ENGINE = InnoDB;
 
 
