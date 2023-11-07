@@ -14,7 +14,10 @@ app.set('views', __dirname + '/views');
 app.engine('.hbs', engine({
 extname: '.hbs',
 }));
+
+
 app.set('view engine', 'hbs');
+
 app.use(express.static(__dirname + "/src"));
 
 app.use(bodyParser.urlencoded({
