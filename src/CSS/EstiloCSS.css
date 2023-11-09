@@ -64,7 +64,7 @@ nav ul li{
 }
 
 nav > ul > li:first-child > a{
-    background-image: url(../IMG/AdgamusLogo1.png);
+    background-image: url(./../IMG/AdgamusLogo1.png);
     background-size: 24px;
     background-repeat: no-repeat;
     background-position: center center;
@@ -72,7 +72,7 @@ nav > ul > li:first-child > a{
 }
 
 nav > ul > li:first-child:hover > a{
-    background-image: url(../IMG/AdgamusLogo1.png);
+    background-image: url(./../IMG/AdgamusLogo1.png);
     background-size: 24px;
     background-repeat: no-repeat;
     background-position: center center;
@@ -206,13 +206,13 @@ main{
     border-radius: 5%;
 }
 #enfoque1{
-    background-image: url(../IMG/Adgamus_Enfoque1.1.jpg);
+    background-image: url(./../IMG/Adgamus_Enfoque1.1.jpg);
 }
 #enfoque2{
-    background-image: url(../IMG/Adgamus_Enfoque2.jpg);
+    background-image: url(./../IMG/Adgamus_Enfoque2.jpg);
 }
 #enfoque3{
-    background-image: url(../IMG/Adgamus_Enfoque3.jpg);
+    background-image: url(./../IMG/Adgamus_Enfoque3.jpg);
 }
 
 .Informacion_adgamus{

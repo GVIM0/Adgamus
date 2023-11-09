@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
 
     <title>Adgamus | Login</title>
     
@@ -12,34 +13,64 @@
 
     <!-- Fontawesome Link -->
     <link href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="./CSS/EstiloCSS.css"/>
+    <link rel="stylesheet" type="text/css" href="/CSS/EstiloCSS.css">
+
  
   </head>
   <body class="bg-gray-200">
     <nav class="flex py-5 bg-green-500 text-white px-24">
         <div class="w-1/2 px-12 mr-auto">
-        <h1 class="text-2x1 font-bold">Adgamus</h1>
+        <h1 class="titulo text-2x1 font-bold">Adgamus</h1>
         </div>
 
         <ul class="w-1/2 px-16 ml-auto flex justify-end pt-1">
           {{#if name}}
-              <li class="nav-item px-4">
-              <p class="font-semibold">{{name}}</p>
-              </li>    
-              <li class="nav-item px-4"> 
-                  <a href="/logout" class="nav-link font-semibold bg-red-500 text-white hover:bg-red-700
-                   py-3 px-4 rounded-md">Cerrar Sesión</a>
-              </li>   
+                <header>
 
+
+            <div class="container__menu">
+
+                <div class="menu">
+                                 <nav class="navigation">
+                    <input type="checkbox" id="check__menu">
+                    <label for="check__menu" id="label__check">
+                        <i class="fas fa-bars icon__menu"></i>
+                    </label>
+                    <nav>
+                        <ul>
+                             <li><a href="#" id="selected"></a></li>
+                            <li><a href="#">Otras opciones</a>
+                                <ul>
+                                    <li><a href="#">Perfil</a></li>
+                                    <li><a href="#">Ajustes</a></li>
+                                    <li><a href="#">Red</a></li>
+                                    <li><a href="#">Mensajes</a></li>
+                                    <li><a href="#">Políticas de uso</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="CuidadoCultivos.html">Cuidado de cultivos</a></li>
+                            <li><a href="SeleccionArtificial.html">Seleccion artificial</a></li>
+                            <li><a href="Recursos.html">Recursos</a></li>
+                            <li class="nav-item px-4">
+                                <a href="Perfil.html" class="nav-link font-semibold bg-green-500 text-white hover:bg-green-700
+                                py-3 px-4 rounded-md">
+                                {{name}}</a>
+                                </li>
+                            <li class="nav-item px-4"> 
+                                <a href="/logout" class="nav-link font-semibold bg-red-500 text-white hover:bg-red-700
+                                py-3 px-4 rounded-md">Cerrar Sesión</a>
+                            </li>                             
+
+                        </ul>
 
           {{else}}
 
 
-              <li class="nav-item px-4"> 
+              <li class="login nav-item px-4"> 
                   <a href="/login" class="nav-link font-semibold hover:bg-green-700 py-3 px-4 
                   rounded-md">Login</a>
               </li>
-              <li class="nav-item px-4"> 
+              <li class="register nav-item px-4"> 
                   <a href="/register" class="nav-link font-semibold border-2 border-white hover:bg-white
                   hover:text-green-700 py-3 px-4 rounded-md">Register</a>
               </li>
@@ -49,10 +80,13 @@
 
         </ul>
 
-    </nav>
-    
+            </nav>
+        </div>
+    </div>
+</header>
   
   {{{body}}}
+
   {{#if name}}
   <footer class="footer">
             <div class="container">
