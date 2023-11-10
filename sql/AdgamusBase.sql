@@ -35,7 +35,6 @@ CREATE TABLE IF NOT EXISTS `Adgamus`.`Usuario` (
         `Preferencias` varchar(45) DEFAULT NULL,
         PRIMARY KEY (`idUsuario`)
     ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb3;
-ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
