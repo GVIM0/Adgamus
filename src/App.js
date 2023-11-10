@@ -42,9 +42,9 @@ app.use(session({
     saveUninitialized: true
 }));
 
-app.use((req, res, next) => {
-    return res.redirect(301, 'http://www.guimo.gerdoc.com/Adgamus/');
-  });
+//app.use((req, res, next) => {
+//    return res.redirect(301, 'http://www.guimo.gerdoc.com/Adgamus/');
+//  });
 
 app.listen(app.get('port'), () => {
     console.log('Listening on port', app.get('port'));
