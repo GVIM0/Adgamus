@@ -56,7 +56,7 @@ app.get('/', (req, res) => {
 
     } else{
 
-        res.redirect('/Adgamus/login');
+        res.redirect('/login');
 
     }
 });

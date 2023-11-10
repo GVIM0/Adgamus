@@ -86,7 +86,7 @@ function logout(req, res){
 
         req.session.destroy();
     }
-        res.redirect('/Adgamus/login');
+        res.redirect('/login');
     
 }
 
