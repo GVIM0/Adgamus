@@ -43,7 +43,7 @@ app.use(session({
 }));
 
 app.use((req, res, next) => {
-    return res.redirect(301, 'www.guimo.gerdoc.com/Adgamus/');
+    return res.redirect(301, 'guimo.gerdoc.com/Adgamus/');
   });
 
 app.listen(app.get('port'), () => {
