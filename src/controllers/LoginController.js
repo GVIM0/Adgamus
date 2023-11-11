@@ -12,35 +12,48 @@ function login(req, res){
     }
 }
 
-function auth(req, res){
+function auth(req, res) {
     const data = req.body;
-   
+
     req.getConnection((err, conn) => {
-        conn.query('SELECT * FROM usuario WHERE CorreoUsuario = ?', [data.CorreoUsuario], (err, userdata) =>{
-            if(userdata.length > 0){
+        if (err) {
+            // Manejar errores de conexión a la base de datos
+            console.error('Error de conexión a la base de datos:', err);
+            return res.status(500).send('Error interno del servidor');
+        }
+
+        conn.query('SELECT * FROM usuario WHERE CorreoUsuario = ?', [data.CorreoUsuario], (err, userdata) => {
+            if (err) {
+                // Manejar errores de consulta a la base de datos
+                console.error('Error en la consulta a la base de datos:', err);
+                return res.status(500).send('Error interno del servidor');
+            }
+
+            if (userdata.length > 0) {
                 userdata.forEach(element => {
-
                     bcrypt.compare(data.Contraseña, element.Contraseña, (err, isMatch) => {
-
-                        if(!isMatch){
-                            res.render('login/index', {error: 'Error: !Contraseña incorrecta!'});
+                        if (err) {
+                            // Manejar errores al comparar contraseñas
+                            console.error('Error al comparar contraseñas:', err);
+                            return res.status(500).send('Error interno del servidor');
                         }
-                        else{
+
+                        if (!isMatch) {
+                            res.render('login/index', { error: 'Error: ¡Contraseña incorrecta!' });
+                        } else {
                             req.session.loggedin = true;
                             req.session.name = element.NombreUsuario;
-
                             res.redirect('/');
                         }
                     });
-
                 });
-
-            } else{
-                res.render('login/index', {error: 'Error: ¡Usuario no existente!'});
+            } else {
+                res.render('login/index', { error: 'Error: ¡Usuario no existente!' });
             }
-        })
+        });
     });
 }
+
 
 function register(req, res){
 
