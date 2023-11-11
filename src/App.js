@@ -15,7 +15,7 @@ app.engine('.hbs', engine({
 extname: '.hbs',
 }));
 
-app.use(express.static('/Adgamus/src'));
+app.use(express.static('src'));
 
 app.set('view engine', 'hbs');
 
