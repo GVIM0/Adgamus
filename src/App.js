@@ -17,8 +17,6 @@ extname: '.hbs',
 
 app.use(express.static('src'));
 
-
-
 app.set('view engine', 'hbs');
 
 //app.use(express.static(__dirname + "/src"));
@@ -28,13 +26,33 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.json());
 
-app.use(myconnection(mysql,{
+// Configuración de la conexión a la base de datos
+const dbConfig = {
     host: 'localhost',
     user: 'root',
     password: '1234',
     port: '3306',
-    database:'Adgamus'
-}));
+    database: 'Adgamus'
+};
+
+const connection = mysql.createConnection(dbConfig);
+
+// Manejadores de eventos para la conexión a la base de datos
+connection.connect((err) => {
+    if (err) {
+        console.error('Error de conexión a la base de datos:', err);
+        return;
+    }
+    console.log('Conexión a la base de datos exitosa');
+});
+
+connection.on('error', (err) => {
+    console.error('Error en la conexión a la base de datos:', err);
+    // Puedes manejar el error según tus necesidades
+});
+
+// Configuración del middleware de conexión
+app.use(myconnection(mysql, dbConfig));
 
 app.use(session({ 
     secret: 'secret',
