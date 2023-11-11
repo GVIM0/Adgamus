@@ -67,32 +67,53 @@ function register(req, res){
     }
 }
 
-function storeUser(req,res){
+function storeUser(req, res) {
     const data = req.body;
 
     req.getConnection((err, conn) => {
-        conn.query('SELECT * FROM usuario WHERE CorreoUsuario = ?', [data.CorreoUsuario], (err, userdata) =>{
-            if(userdata.length > 0){
-                res.render('login/register', {error: 'Error: ¡Usuario ya existente!'});
-            } else{
+        if (err) {
+            // Manejar errores de conexión a la base de datos
+            console.error('Error de conexión a la base de datos:', err);
+            return res.status(500).send('Error interno del servidor');
+        }
 
-                bcrypt.hash(data.Contraseña, 12).then(hash =>{
-                    data.Contraseña = hash;
-            
-                    req.getConnection((err, conn) => {
-                        conn.query('INSERT INTO usuario SET ?', [data], (err, rows) => {
+        const checkUserQuery = 'SELECT * FROM usuario WHERE CorreoUsuario = ?';
 
-                            req.session.loggedin = true;
-                            req.session.name = data.NombreUsuario;
-
-                            res.redirect('/');
-                        });
-                    });
-                });
+        conn.query(checkUserQuery, [data.CorreoUsuario], (err, userdata) => {
+            if (err) {
+                // Manejar errores de consulta a la base de datos
+                console.error('Error en la consulta a la base de datos:', err);
+                return res.status(500).send('Error interno del servidor');
             }
-        })
+
+            if (userdata.length > 0) {
+                // El usuario ya existe
+                return res.render('login/register', { error: 'Error: ¡Usuario ya existente!' });
+            }
+
+            // Usuario no existe, proceder con la inserción
+            bcrypt.hash(data.Contraseña, 12).then(hash => {
+                data.Contraseña = hash;
+
+                const insertUserQuery = 'INSERT INTO usuario SET ?';
+
+                conn.query(insertUserQuery, [data], (err, rows) => {
+                    if (err) {
+                        // Manejar errores de inserción a la base de datos
+                        console.error('Error al insertar usuario en la base de datos:', err);
+                        return res.status(500).send('Error interno del servidor');
+                    }
+
+                    req.session.loggedin = true;
+                    req.session.name = data.NombreUsuario;
+
+                    res.redirect('/');
+                });
+            });
+        });
     });
 }
+
 
 function logout(req, res){
     if(req.session.loggedin == true){
