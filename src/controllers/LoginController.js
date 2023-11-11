@@ -107,7 +107,7 @@ function storeUser(req, res) {
                     req.session.loggedin = true;
                     req.session.name = data.NombreUsuario;
 
-                    res.redirect('/');
+                    res.redirect('/Adgamus');
                 });
             });
         });
