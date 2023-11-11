@@ -164,6 +164,7 @@ nav ul li ul li a:hover{
 main{
     padding: 40px 20px;
     margin-top: -90px;
+    justify-content: center;
 }
 .container{
     padding-bottom: 80px;
