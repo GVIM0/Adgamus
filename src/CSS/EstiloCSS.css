@@ -92,13 +92,13 @@ nav > ul > li > a{
 
 nav > ul > li > a:hover{
     transform: scale(1.1);
-    background: #BCBF5A;
+    background: #99E89E;
     box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
 }
 
 #selected{
     transform: scale(1.1);
-    background-color: #BCBF5A;
+    background-color: #99E89E;
     box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
 }
 
@@ -163,7 +163,7 @@ nav ul li ul li a:hover{
 
 main{
     padding: 40px 20px;
-    margin-top: 194px;
+    margin-top: 92px;
 }
 .container{
     padding-bottom: 80px;
@@ -239,6 +239,9 @@ article p{
 /*FOOTER*/
 footer .title_section{
     color: #57590F;
+}
+.containerF{
+    padding: 0px 0px;
 }
 footer .copy{
     color: #000;
