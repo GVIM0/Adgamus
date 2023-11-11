@@ -22,7 +22,7 @@ function auth(req, res) {
             return res.status(500).send('Error interno del servidor');
         }
 
-        conn.query('SELECT * FROM usuario WHERE CorreoUsuario = ?', [data.CorreoUsuario], (err, userdata) => {
+        conn.query('SELECT * FROM Usuario WHERE CorreoUsuario = ?', [data.CorreoUsuario], (err, userdata) => {
             if (err) {
                 // Manejar errores de consulta a la base de datos
                 console.error('Error en la consulta a la base de datos:', err);
@@ -77,7 +77,7 @@ function storeUser(req, res) {
             return res.status(500).send('Error interno del servidor');
         }
 
-        const checkUserQuery = 'SELECT * FROM usuario WHERE CorreoUsuario = ?';
+        const checkUserQuery = 'SELECT * FROM Usuario WHERE CorreoUsuario = ?';
 
         conn.query(checkUserQuery, [data.CorreoUsuario], (err, userdata) => {
             if (err) {
@@ -95,7 +95,7 @@ function storeUser(req, res) {
             bcrypt.hash(data.Contraseña, 12).then(hash => {
                 data.Contraseña = hash;
 
-                const insertUserQuery = 'INSERT INTO usuario SET ?';
+                const insertUserQuery = 'INSERT INTO Usuario SET ?';
 
                 conn.query(insertUserQuery, [data], (err, rows) => {
                     if (err) {
