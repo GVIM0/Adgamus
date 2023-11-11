@@ -46,7 +46,7 @@ app.listen(app.get('port'), () => {
     console.log('Listening on port', app.get('port'));
 });
 
-app.use('/', loginRoutes);
+app.use('/Adgamus', loginRoutes);
 
 app.get('/', (req, res) => {
 
@@ -56,7 +56,7 @@ app.get('/', (req, res) => {
 
     } else{
 
-        res.redirect('login');
+        res.redirect('/Adgamus/login');
 
     }
 });
