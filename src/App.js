@@ -36,6 +36,14 @@ app.use(myconnection(mysql,{
     database:'Adgamus'
 }));
 
+connection.connect((err) => {
+    if (err) {
+        console.error('Error de conexión a la base de datos:', err);
+        return;
+    }
+    console.log('Conexión a la base de datos exitosa');
+});
+
 app.use(session({ 
     secret: 'secret',
     resave: true,
