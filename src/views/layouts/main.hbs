@@ -29,8 +29,10 @@
                     <label for="check__menu" id="label__check">
                         <i class="fas fa-bars icon__menu"></i>
                     </label>
+                      <div class="nav-justify">
+                        
                     <nav>
-                    <ul>
+                        <ul>
                         
                             <li><a href="#" id="selected"></a></li>
                             <li><a href="#">Otras opciones</a>
@@ -44,6 +46,8 @@
                             <li><a href="CuidadoCultivos.html">Cuidado de cultivos</a></li>
                             <li><a href="SeleccionArtificial.html">Seleccion artificial</a></li>
                             <li><a href="Recursos.html">Recursos</a></li>
+                        </nav>
+                          <nav>
                             <li class="nav-item px-4">
                                 <a href="Perfil.html" class="nav-link-name">
                                 {{name}}
@@ -54,6 +58,7 @@
                             </li>
                   </ul>
             </nav>
+          </div>
 
           {{else}}
           <div class="menu">
@@ -63,7 +68,7 @@
                         <i class="fas fa-bars icon__menu"></i>
                     </label>
           <nav>
-            <ul>
+            <ul class="ul-login">
               <li><a href="#" id="selected"></a></li>
               <li> 
                   <a href="/Adgamus/login" class="nav-link-login">Login</a>
