@@ -19,28 +19,19 @@
  
   </head>
   <body class="bg-gray-200">
-    <nav class="estilo-flex">
-        
-        <ul>
-          <li><a href="#" id="selected"></a></li>
-        </ul>
-
-        <ul class="w-1/2 px-16 ml-auto flex justify-end pt-1">
-          
-          {{#if name}}
-                <header>
-
-
-            <div class="container__menu">
-
-                <div class="menu">
+  <header>
+    <div class="menu">
                     <nav class="navigation">
                     <input type="checkbox" id="check__menu">
                     <label for="check__menu" id="label__check">
                         <i class="fas fa-bars icon__menu"></i>
                     </label>
                     <nav>
-                        <ul>
+                    <div class="container__menu">
+                    <ul>
+                      
+          {{#if name}}
+                        
                             <li><a href="#" id="selected"></a></li>
                             <li><a href="#">Otras opciones</a>
                                 <ul>
@@ -61,11 +52,9 @@
                                 <a href="/Adgamus/logout" class="nav-link-logout">Cerrar Sesión</a>
                             </li>                             
 
-                        </ul>
-
           {{else}}
 
-
+              <li><a href="#" id="selected"></a></li>
               <li class="login nav-item px-4"> 
                   <a href="/Adgamus/login" class="nav-link-login">Login</a>
               </li>
