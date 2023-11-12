@@ -21,9 +21,9 @@
   <body class="bg-gray-200">
   <header>
  
-                      
-          {{#if name}}
+      <div class="container__menu">                
        <div class="menu">
+          {{#if name}}
                     <nav class="navigation">
                     <input type="checkbox" id="check__menu">
                     <label for="check__menu" id="label__check">
@@ -47,14 +47,14 @@
                             <li><a href="Recursos.html">Recursos</a></li>
                             <li class="nav-item px-4">
                                 <a href="Perfil.html" class="nav-link-name">
-                                {{name}}</a>
-                                </li>
+                                {{name}}
+                                </a>
+                            </li>
                             <li class="nav-item px-4"> 
                                 <a href="/Adgamus/logout" class="nav-link-logout">Cerrar Sesión</a>
                             </li>
                   </ul>
             </nav>
-        </div>
 
           {{else}}
           <div class="menu">
@@ -75,9 +75,10 @@
               </li>
                     </ul>
             </nav>
-        </div>
 
           {{/if}}
+        </div>
+     </div>
 
 
 </header>
