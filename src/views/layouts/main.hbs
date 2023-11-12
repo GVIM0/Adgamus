@@ -19,12 +19,14 @@
  
   </head>
   <body class="bg-gray-200">
-    <nav class="flex py-5 bg-green-500 text-white px-24">
-        <div class="w-1/2 px-12 mr-auto">
-        <h1 class="titulo text-2x1 font-bold">Adgamus</h1>
-        </div>
+    <nav class="estilo-flex">
+        
+        <ul>
+          <li><a href="#" id="selected"></a></li>
+        </ul>
 
         <ul class="w-1/2 px-16 ml-auto flex justify-end pt-1">
+          
           {{#if name}}
                 <header>
 
@@ -32,17 +34,16 @@
             <div class="container__menu">
 
                 <div class="menu">
-                                 <nav class="navigation">
+                    <nav class="navigation">
                     <input type="checkbox" id="check__menu">
                     <label for="check__menu" id="label__check">
                         <i class="fas fa-bars icon__menu"></i>
                     </label>
                     <nav>
                         <ul>
-                             <li><a href="#" id="selected"></a></li>
+                            <li><a href="#" id="selected"></a></li>
                             <li><a href="#">Otras opciones</a>
                                 <ul>
-                                    <li><a href="#">Perfil</a></li>
                                     <li><a href="#">Ajustes</a></li>
                                     <li><a href="#">Red</a></li>
                                     <li><a href="#">Mensajes</a></li>
@@ -53,13 +54,11 @@
                             <li><a href="SeleccionArtificial.html">Seleccion artificial</a></li>
                             <li><a href="Recursos.html">Recursos</a></li>
                             <li class="nav-item px-4">
-                                <a href="Perfil.html" class="nav-link font-semibold bg-green-500 text-white hover:bg-green-700
-                                py-3 px-4 rounded-md">
+                                <a href="Perfil.html" class="nav-link-name">
                                 {{name}}</a>
                                 </li>
                             <li class="nav-item px-4"> 
-                                <a href="/Adgamus/logout" class="nav-link font-semibold bg-red-500 text-white hover:bg-red-700
-                                py-3 px-4 rounded-md">Cerrar Sesión</a>
+                                <a href="/Adgamus/logout" class="nav-link-logout">Cerrar Sesión</a>
                             </li>                             
 
                         </ul>
@@ -68,12 +67,10 @@
 
 
               <li class="login nav-item px-4"> 
-                  <a href="/Adgamus/login" class="nav-link font-semibold hover:bg-green-700 py-3 px-4 
-                  rounded-md">Login</a>
+                  <a href="/Adgamus/login" class="nav-link-login">Login</a>
               </li>
               <li class="register nav-item px-4"> 
-                  <a href="/Adgamus/register" class="nav-link font-semibold border-2 border-white hover:bg-white
-                  hover:text-green-700 py-3 px-4 rounded-md">Register</a>
+                  <a href="/Adgamus/register" class="nav-link-register">Register</a>
               </li>
 
 
