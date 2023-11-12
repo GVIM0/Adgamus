@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
 
-    <title>Adgamus | Login</title>
+    <title>Adgamus</title>
     
     <!-- Tailwind CSS Link -->
     <link rel="stylesheet" 
@@ -29,7 +29,6 @@
                     <label for="check__menu" id="label__check">
                         <i class="fas fa-bars icon__menu"></i>
                     </label>
-                      <div class="nav-justify">
                         
                     <nav>
                         <ul>
@@ -46,8 +45,7 @@
                             <li><a href="CuidadoCultivos.html">Cuidado de cultivos</a></li>
                             <li><a href="SeleccionArtificial.html">Seleccion artificial</a></li>
                             <li><a href="Recursos.html">Recursos</a></li>
-                        </nav>
-                          <nav>
+
                             <li class="nav-item px-4">
                                 <a href="Perfil.html" class="nav-link-name">
                                 {{name}}
@@ -58,36 +56,37 @@
                             </li>
                   </ul>
             </nav>
-          </div>
 
           {{else}}
-          <div class="menu">
-                    <nav class="navigation">
+
+                <nav class="navigation">
                     <input type="checkbox" id="check__menu">
                     <label for="check__menu" id="label__check">
                         <i class="fas fa-bars icon__menu"></i>
                     </label>
-          <nav>
-            <ul class="ul-login">
-              <li><a href="#" id="selected"></a></li>
-              <li> 
-                  <a href="/Adgamus/login" class="nav-link-login">Login</a>
-              </li>
-              <li> 
-                  <a href="/Adgamus/register" class="nav-link-register">Register</a>
-              </li>
-            </ul>
-          </nav>
+                        <ul>
+                            <li><a href="#" id="selected"></a></li>
+                            <li>
+                                <a href="/Adgamus/login" class="nav-link-login ">Iniciar Sesión</a>
+                            </li>
+                            <li> 
+                                <a href="/Adgamus/register" class="nav-link-register  ">Registrarse</a>
+                            </li>
+                        </ul>
+                </nav>
+
 
           {{/if}}
         </div>
      </div>
 
-
 </header>
   
-  {{{body}}}
+ <main class="main">
 
+  {{{body}}}
+    
+</main>
   {{#if name}}
   <footer class="footer">
             <div class="containerF">
@@ -97,7 +96,7 @@
                 </div>
                 <div class="redes_sociales">
                     <a href="#"><i class="fa-brands fa-facebook"></i></a>
-                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://instagram.com/g.u.i.m.o?igshid=bzN4anJoZmpubmZv"><i class="fa-brands fa-instagram"></i></a>
                     <a href="#"><i class="fa-solid fa-envelope"></i></a>
                 </div>
                 <div class="containerF">
