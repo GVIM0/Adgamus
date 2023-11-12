@@ -161,7 +161,7 @@ nav-link-logout:hover {
   border-radius: 0.375rem;
   text-decoration: none;
   display: inline-block; 
-
+}
 .nav-link-register:hover {
   background-color: #ffffff;
   color: #22c07b; 
