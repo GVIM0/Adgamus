@@ -37,6 +37,24 @@ CREATE TABLE IF NOT EXISTS `Adgamus`.`Usuario` (
 ) ENGINE = InnoDB;
 
 -- -----------------------------------------------------
+-- Insert `Admin` como `Usuario`
+-- -----------------------------------------------------
+
+INSERT INTO Usuario (NombreUsuario, CorreoUsuario, Contraseña, Nombre, Apellido, Descripcion)
+VALUES
+  ("0M1N", "salinas.aquino.omarivan@gmail.com", "$2b$12$KX6NWIf1SkB4zyGleiJQ7esUajj5VeWu2Q9WSmwRPxqQJZpYKOmBS",
+   "Omar Ivan", "Salinas Aquino", "Hola soy Omar."),
+   
+  ("AbsorbedSun", "garcia.ambrosio.aldo@gmail.com", "$2b$12$SI5pLnHpwiwiZIt4bDpOHOm3I/gA1KQmGewIQDb3Uf4c6QMmfqPfe",
+   "Aldo", "Garcia Ambrosio", "Hola soy Aldo"),
+   
+  ("MAPE", "ponce.espino.miguelangel@gmail.com", "$2b$12$uo0HTPL7h1Voq8ONcj7/HutZLvuwhXBNfBs4hHTKm28D.SdKY7Fay",
+   "Miguel Angel", "Ponce Espino", "Hola soy Ponce"),
+   
+  ("GARVEN092", "hernadez.vera.gabriel09@gmail.com", "$2b$12$whbNQgWnEWIogfQBDR2Zu.xtOPv/6SeCai3oNJm3vgS5GuwPqNbwW",
+   "Gabriel", "Hernandez Vera", "Hola soy Gabo");
+
+-- -----------------------------------------------------
 -- Table `Adgamus`.`Catalogo_Taxonomia_C`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `Adgamus`.`Catalogo_Taxonomia_C` ;
