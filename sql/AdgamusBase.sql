@@ -33,6 +33,7 @@ CREATE TABLE IF NOT EXISTS `Adgamus`.`Usuario` (
     `Descripcion` VARCHAR(45) DEFAULT NULL,
     `Foto_Perfil` TINYBLOB,
     `Preferencias` VARCHAR(45) DEFAULT NULL,
+    `Administrador` BOOLEAN default false,
     PRIMARY KEY (`idUsuario`)
 ) ENGINE = InnoDB;
 
@@ -40,19 +41,19 @@ CREATE TABLE IF NOT EXISTS `Adgamus`.`Usuario` (
 -- Insert `Admin` como `Usuario`
 -- -----------------------------------------------------
 
-INSERT INTO Usuario (NombreUsuario, CorreoUsuario, Contraseña, Nombre, Apellido, Descripcion)
+INSERT INTO Usuario (NombreUsuario, CorreoUsuario, Contraseña, Nombre, Apellido, Descripcion, Administrador)
 VALUES
   ("0M1N", "salinas.aquino.omarivan@gmail.com", "$2b$12$KX6NWIf1SkB4zyGleiJQ7esUajj5VeWu2Q9WSmwRPxqQJZpYKOmBS",
-   "Omar Ivan", "Salinas Aquino", "Hola soy Omar."),
+   "Omar Ivan", "Salinas Aquino", "Hola soy Omar.", true),
    
   ("AbsorbedSun", "garcia.ambrosio.aldo@gmail.com", "$2b$12$SI5pLnHpwiwiZIt4bDpOHOm3I/gA1KQmGewIQDb3Uf4c6QMmfqPfe",
-   "Aldo", "Garcia Ambrosio", "Hola soy Aldo"),
+   "Aldo", "Garcia Ambrosio", "Hola soy Aldo", true),
    
   ("MAPE", "ponce.espino.miguelangel@gmail.com", "$2b$12$uo0HTPL7h1Voq8ONcj7/HutZLvuwhXBNfBs4hHTKm28D.SdKY7Fay",
-   "Miguel Angel", "Ponce Espino", "Hola soy Ponce"),
+   "Miguel Angel", "Ponce Espino", "Hola soy Ponce", true),
    
   ("GARVEN092", "hernadez.vera.gabriel09@gmail.com", "$2b$12$whbNQgWnEWIogfQBDR2Zu.xtOPv/6SeCai3oNJm3vgS5GuwPqNbwW",
-   "Gabriel", "Hernandez Vera", "Hola soy Gabo");
+   "Gabriel", "Hernandez Vera", "Hola soy Gabo", true);
 
 -- -----------------------------------------------------
 -- Table `Adgamus`.`Catalogo_Taxonomia_C`
@@ -355,3 +356,5 @@ CREATE TABLE IF NOT EXISTS `Adgamus`.`Consume` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION
 ) ENGINE = InnoDB;
+
+select * from Usuario;

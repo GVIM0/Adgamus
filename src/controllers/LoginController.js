@@ -8,7 +8,7 @@ function login(req, res){
 
     } else{
 
-        res.redirect('/Adgamus/');
+        res.redirect('/');
     }
 }
 
@@ -23,6 +23,7 @@ function auth(req, res) {
         }
 
         conn.query('SELECT * FROM Usuario WHERE CorreoUsuario = ?', [data.CorreoUsuario], (err, userdata) => {
+
             if (err) {
                 // Manejar errores de consulta a la base de datos
                 console.error('Error en la consulta a la base de datos:', err);
@@ -41,9 +42,20 @@ function auth(req, res) {
                         if (!isMatch) {
                             res.render('login/index', { error: 'Error: ¡Contraseña incorrecta!' });
                         } else {
-                            req.session.loggedin = true;
-                            req.session.name = element.NombreUsuario;
-                            res.redirect('/Adgamus/');
+                            let admin = element.Administrador
+                            if(admin === 1){
+                                req.session.loggedin = true;
+                                req.session.name = element.NombreUsuario;
+                                req.session.admin = element.Administrador;
+                                res.redirect('/');
+                            }
+                            else{
+                                req.session.loggedin = true;
+                                req.session.name = element.NombreUsuario;
+                                res.redirect('/');
+                            }
+   
+                            
                         }
                     });
                 });
@@ -106,8 +118,9 @@ function storeUser(req, res) {
 
                     req.session.loggedin = true;
                     req.session.name = data.NombreUsuario;
+                    
 
-                    res.redirect('/Adgamus/');
+                    res.redirect('/');
                 });
             });
         });

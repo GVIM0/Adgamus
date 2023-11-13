@@ -13,9 +13,9 @@
 
     <!-- Fontawesome Link -->
     <link href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="/Adgamus/CSS/EstiloCSS.css">
-    <link rel="stylesheet" type="text/css" href="/Adgamus/CSS/FondoCSS.css">
-
+    <link rel="stylesheet" type="text/css" href="/CSS/EstiloCSS.css">
+    <link rel="stylesheet" type="text/css" href="/CSS/FondoCSS.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
  
   </head>
   <body class="bg-gray-200">
@@ -24,7 +24,10 @@
       <div class="container__menu">                
        <div class="menu">
           {{#if name}}
-                    <nav class="navigation">
+          {{#if admin}}  
+            <p>Eres admin</p>
+            {{else}}
+                             <nav class="navigation">
                     <input type="checkbox" id="check__menu">
                     <label for="check__menu" id="label__check">
                         <i class="fas fa-bars icon__menu"></i>
@@ -52,12 +55,14 @@
                                 </a>
                             </li>
                             <li class="nav-item px-4"> 
-                                <a href="/Adgamus/logout" class="nav-link-logout">Cerrar Sesión</a>
+                                <a href="/logout" class="nav-link-logout">Cerrar Sesión</a>
                             </li>
                   </ul>
             </nav>
+            {{/if}}
+           
 
-          {{else}}
+             {{else}}
 
                 <nav class="navigation">
                     <input type="checkbox" id="check__menu">
@@ -67,10 +72,10 @@
                         <ul>
                             <li><a href="#" id="selected"></a></li>
                             <li>
-                                <a href="/Adgamus/login" class="nav-link-login ">Iniciar Sesión</a>
+                                <a href="/login" class="nav-link-login ">Iniciar Sesión</a>
                             </li>
                             <li> 
-                                <a href="/Adgamus/register" class="nav-link-register  ">Registrarse</a>
+                                <a href="/register" class="nav-link-register  ">Registrarse</a>
                             </li>
                         </ul>
                 </nav>

@@ -30,7 +30,7 @@ app.use(bodyParser.json());
 const dbConfig = {
     host: 'localhost',
     user: 'root',
-    password: '1234',
+    password: 'n0m3l0',
     port: '3306',
     database: 'Adgamus'
 };
@@ -69,8 +69,15 @@ app.use('/', loginRoutes);
 app.get('/', (req, res) => {
 
     if(req.session.loggedin == true){
+        if(req.session.admin == true){
+        res.render('admin', {name: req.session.name, admin: req.session.admin});
+        }
+        else{
 
-        res.render('home', {name: req.session.name});
+        res.render('home', {name: req.session.name, admin: req.session.admin});
+
+
+        }
 
     } else{
 
