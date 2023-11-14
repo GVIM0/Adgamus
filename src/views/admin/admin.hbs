@@ -1,0 +1,71 @@
+<style>
+    body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+.dashboard {
+  max-width: 800px;
+  margin: 50px auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.statistics {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.statistic {
+  text-align: center;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+}
+
+h2 {
+  color: #555;
+}
+
+p {
+  font-size: 24px;
+  font-weight: bold;
+  color: #007bff;
+}
+</style>
+<script>
+    // Simulando datos estadísticos (reemplázalos con datos reales obtenidos de tu backend)
+const totalUsers = 500;
+const registrationsToday = 25;
+
+// Actualizando el contenido de las estadísticas en el panel de control
+document.getElementById('totalUsers').textContent = totalUsers;
+document.getElementById('registrationsToday').textContent = registrationsToday;
+
+</script>
+ <div class="dashboard">
+    <h1>Panel de Control</h1>
+    <div class="statistics">
+      <div class="statistic">
+        <h2>Total de Usuarios</h2>
+        <p id="totalUsers">100</p>
+      </div>
+      <div class="statistic">
+        <h2>Registros Hoy</h2>
+        <p id="registrationsToday">10</p>
+      </div>
+      <!-- Agrega más estadísticas según sea necesario -->
+    </div>
+  </div>
+
+  <script src="dashboard.js"></script>

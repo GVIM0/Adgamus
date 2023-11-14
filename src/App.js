@@ -6,6 +6,7 @@ const session = require('express-session');
 const bodyParser = require('body-parser');
 
 const loginRoutes = require('./routes/login');
+const adminRoutes = require('./routes/admin');
 
 const app = express();
 app.set('port', 4000);
@@ -31,7 +32,7 @@ const dbConfig = {
     host: 'localhost',
     user: 'root',
     password: 'n0m3l0',
-    port: '3306',
+    port: '3308',
     database: 'Adgamus'
 };
 
@@ -65,18 +66,17 @@ app.listen(app.get('port'), () => {
 });
 
 app.use('/', loginRoutes);
+app.use('/', adminRoutes);
 
 app.get('/', (req, res) => {
 
-    if(req.session.loggedin == true){
-        if(req.session.admin == true){
-        res.render('admin', {name: req.session.name, admin: req.session.admin});
-        }
-        else{
-
-        res.render('home', {name: req.session.name, admin: req.session.admin});
-
-
+    if (req.session.loggedin == true) {
+        
+        if (req.session.admin == 1) {
+            res.render('admin/admin', { name: req.session.name, admin: req.session.admin });
+        } else {
+            
+            res.render('home', { name: req.session.name, admin: req.session.admin });
         }
 
     } else{

@@ -13,8 +13,8 @@
 
     <!-- Fontawesome Link -->
     <link href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="/CSS/EstiloCSS.css">
-    <link rel="stylesheet" type="text/css" href="/CSS/FondoCSS.css">
+    <link rel="stylesheet" type="text/css" href="/public/CSS/EstiloCSS.css">
+    <link rel="stylesheet" type="text/css" href="/public/CSS/FondoCSS.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
  
   </head>
@@ -23,48 +23,71 @@
  
       <div class="container__menu">                
        <div class="menu">
-          {{#if name}}
-          {{#if admin}}  
-            <p>Eres admin</p>
-            {{else}}
-                             <nav class="navigation">
+        
+        {{#if name}}
+            {{#if admin}}
+                <nav class="navigation">
                     <input type="checkbox" id="check__menu">
                     <label for="check__menu" id="label__check">
-                        <i class="fas fa-bars icon__menu"></i>
+                            <i class="fas fa-bars icon__menu"></i>
                     </label>
-                        
-                    <nav>
-                        <ul>
-                        
-                            <li><a href="#" id="selected"></a></li>
-                            <li><a href="#">Otras opciones</a>
-                                <ul>
-                                    <li><a href="#">Ajustes</a></li>
-                                    <li><a href="#">Red</a></li>
-                                    <li><a href="#">Mensajes</a></li>
-                                    <li><a href="#">Políticas de uso</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="CuidadoCultivos.html">Cuidado de cultivos</a></li>
-                            <li><a href="SeleccionArtificial.html">Seleccion artificial</a></li>
-                            <li><a href="Recursos.html">Recursos</a></li>
+                    <ul>
+                                <li><a href="#" id="selected"></a></li>
+                                <li><a href="#">Gestión</a>
+                                    <ul>
+                                        <li><a href="#">Plantas</a></li>
+                                        <li><a href="#">Animales</a></li>
+                                        <li><a href="#">Recusros</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="CuidadoCultivos.html">Usuarios</a></li>
+                                <li><a href="SeleccionArtificial.html">Publicaciones</a></li>
+                                <li><a href="#">Ajustes </a></li>
 
-                            <li class="nav-item px-4">
-                                <a href="Perfil.html" class="nav-link-name">
-                                {{name}}
-                                </a>
-                            </li>
-                            <li class="nav-item px-4"> 
-                                <a href="/logout" class="nav-link-logout">Cerrar Sesión</a>
-                            </li>
-                  </ul>
-            </nav>
-            {{/if}}
-           
-
-             {{else}}
-
+                                <li class="nav-item px-4">
+                                    <a href="Perfil.html" class="nav-link-name">
+                                    {{name}}
+                                    </a>
+                                </li>
+                                <li class="nav-item px-4"> 
+                                    <a href="/logout" class="nav-link-logout">Cerrar Sesión</a>
+                                </li>
+                    </ul>
+                </nav>
+            {{else}}
                 <nav class="navigation">
+                    <input type="checkbox" id="check__menu">
+                    <label for="check__menu" id="label__check">
+                            <i class="fas fa-bars icon__menu"></i>
+                    </label>
+                    <ul>
+                                <li><a href="#" id="selected"></a></li>
+                                <li><a href="#">Otras opciones</a>
+                                    <ul>
+                                        <li><a href="#">Ajustes</a></li>
+                                        <li><a href="#">Red</a></li>
+                                        <li><a href="#">Mensajes</a></li>
+                                        <li><a href="#">Políticas de uso</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="CuidadoCultivos.html">Cuidado de cultivos</a></li>
+                                <li><a href="SeleccionArtificial.html">Seleccion artificial</a></li>
+                                <li><a href="Recursos.html">Recursos</a></li>
+
+                                <li class="nav-item px-4">
+                                    <a href="Perfil.html" class="nav-link-name">
+                                    {{name}}
+                                    </a>
+                                </li>
+                                <li class="nav-item px-4"> 
+                                    <a href="/logout" class="nav-link-logout">Cerrar Sesión</a>
+                                </li>
+                    </ul>
+                </nav>
+            {{/if}}
+        {{else}}
+        <nav class="navigation">
+             <nav class="navigation">
                     <input type="checkbox" id="check__menu">
                     <label for="check__menu" id="label__check">
                         <i class="fas fa-bars icon__menu"></i>
@@ -80,15 +103,13 @@
                         </ul>
                 </nav>
 
-
-          {{/if}}
+        {{/if}}
         </div>
      </div>
 
 </header>
   
  <main class="main">
-
   {{{body}}}
     
 </main>
