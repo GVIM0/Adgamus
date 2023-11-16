@@ -1,0 +1,215 @@
+<style>
+  *{ box-sizing: border-box; font-family: 'Source Sans 3', sans-serif;
+  text-decoration: none; } body{ overflow-y: auto; padding-top: 50px; }
+</style>
+
+<div
+  class="container-md w-50 p-3 bg-success-subtle text-emphasis-success border border-black rounded px-5 g-col-6"
+>
+  <h1 class="text-center p-5 fw-bold fs-3">CRUD plantas</h1>
+  <form>
+    <div class="mb-3">
+      <label type="text" class="input-group text-center fw-bold mb-3">Tipos de
+        cultivos</label>
+      <select class="form-select" aria-label="Default select example">
+        <option selected>Seleccionar</option>
+        <option value="1">Uno</option>
+        <option value="2">Dos</option>
+        <option value="3">Tres</option>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label type="text" class="input-group text-center fw-bold mb-3">Region
+        Geografica</label>
+      <select class="form-select" aria-label="Default select example">
+        <option selected>Seleccionar</option>
+        <option value="1">Uno</option>
+        <option value="2">Dos</option>
+        <option value="3">Tres</option>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label
+        type="text"
+        class="input-group text-center fw-bold mb-3"
+      >Seleccionar imagen</label>
+      <div class="input-group mb-3">
+        <input type="file" class="form-control" id="inputGroupFile02" />
+        <label class="input-group-text" for="inputGroupFile02">Subir</label>
+      </div>
+    </div>
+
+    <div class="input-group mb-3">
+      <label type="text" class="input-group text-center fw-bold mb-3">Nombre
+        científico</label>
+      <span class="input-group-text">Nombre científico</span>
+      <input
+        type="text"
+        aria-label="genero"
+        class="form-control"
+        placeholder="Género"
+      />
+      <input
+        type="text"
+        aria-label="especie"
+        class="form-control"
+        placeholder="Especie"
+      />
+    </div>
+
+    <div class="form-floating mb-3">
+      <textarea
+        class="form-control"
+        placeholder="Rasgos especificos aquí"
+        id="RasgosEspecificos"
+        style="height: 100px"
+      ></textarea>
+      <label for="RasgosEspecificos" class="fw-bold z-index-1">Rasgos Específicos</label>
+    </div>
+
+    <div class="form-floating mb-3">
+      <textarea
+        class="form-control"
+        placeholder="Información de cuidado"
+        id="InformacionCuidado"
+        style="height: 120px"
+      ></textarea>
+      <label for="InformacionCuidado" class="fw-bold z-index-1">Información de cuidado</label>
+    </div>
+
+    <div class="mb-3">
+      <label for="reino" class="form-label">Reino:</label>
+      <select id="reino" name="reino" class="form-select"></select>
+    </div>
+
+    <div class="mb-3">
+      <label for="filo" class="form-label">Filo:</label>
+      <select id="filo" name="filo" class="form-select"></select>
+    </div>
+
+    <div class="mb-3">
+      <label for="clase" class="form-label">Clase:</label>
+      <select id="clase" name="clase" class="form-select"></select>
+    </div>
+
+    <div class="mb-3">
+      <label for="orden" class="form-label">Orden:</label>
+      <select id="orden" name="orden" class="form-select"></select>
+    </div>
+
+    <div class="mb-3">
+      <label for="familia" class="form-label">Familia:</label>
+      <select id="familia" name="familia" class="form-select"></select>
+    </div>
+
+    <div class="mb-3">
+      <label for="genero" class="form-label">Género:</label>
+      <select id="genero" name="genero" class="form-select"></select>
+    </div>
+
+    <div class="mb-3">
+      <label for="especie" class="form-label">Especie:</label>
+      <select id="especie" name="especie" class="form-select"></select>
+    </div>
+
+    <div class="mb-3">
+      <button type="submit" class="btn btn-primary">Enviar</button>
+    </div>
+
+  </form>
+
+</div>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var taxonomia = {
+        "reinos": ["Animalia", "Plantae"],
+        "filos": {
+          "Animalia": ["Chordata", "Arthropoda", "Mollusca"],
+          "Plantae": ["Angiospermae", "Bryophyta", "Pteridophyta"]
+        },
+        "clases": {
+          "Chordata": ["Mammalia", "Aves", "Reptilia"],
+          "Arthropoda": ["Insecta", "Arachnida"],
+          "Mollusca": ["Gastropoda", "Bivalvia"]
+          // Agrega más clases según sea necesario
+        },
+        "ordenes": {
+          "Mammalia": ["Primates", "Carnivora", "Rodentia"],
+          "Insecta": ["Coleoptera", "Lepidoptera", "Diptera"]
+          // Agrega más órdenes según sea necesario
+        },
+        "familias": {
+          "Primates": ["Hominidae", "Cercopithecidae"],
+          "Coleoptera": ["Scarabaeidae", "Cerambycidae"]
+          // Agrega más familias según sea necesario
+        },
+        "generos": {
+          "Hominidae": ["Homo", "Pan"],
+          "Scarabaeidae": ["Scarabaeus", "Phanaeus"]
+          // Agrega más géneros según sea necesario
+        },
+        "especies": {
+          "Homo": ["sapiens"],
+          "Scarabaeus": ["procerus"]
+          // Agrega más especies según sea necesario
+        }
+      };
+
+      function llenarSelect(selector, opciones) {
+        var select = document.getElementById(selector);
+        for (var i = 0; i < opciones.length; i++) {
+          var option = document.createElement("option");
+          option.value = opciones[i];
+          option.text = opciones[i];
+          select.add(option);
+        }
+      }
+
+      function actualizarSelect(selector, opciones) {
+        var select = document.getElementById(selector);
+        select.innerHTML = "<option value=''>Selecciona una opción</option>";
+        if (opciones) {
+          llenarSelect(selector, opciones);
+        }
+      }
+
+      function manejarCambio(selectorActual, selectorSiguiente) {
+        var selectedValue = document.getElementById(selectorActual).value;
+        if (selectedValue && taxonomia[selectorSiguiente] && taxonomia[selectorSiguiente][selectedValue]) {
+          actualizarSelect(selectorSiguiente, taxonomia[selectorSiguiente][selectedValue]);
+        } else {
+          actualizarSelect(selectorSiguiente);
+        }
+      }
+
+      llenarSelect("reino", taxonomia.reinos);
+      document.getElementById("reino").addEventListener("change", function () {
+        manejarCambio("reino", "filo");
+      });
+
+      document.getElementById("filo").addEventListener("change", function () {
+        manejarCambio("filo", "clase");
+      });
+
+      document.getElementById("clase").addEventListener("change", function () {
+        manejarCambio("clase", "orden");
+      });
+
+      document.getElementById("orden").addEventListener("change", function () {
+        manejarCambio("orden", "familia");
+      });
+
+      document.getElementById("familia").addEventListener("change", function () {
+        manejarCambio("familia", "genero");
+      });
+
+      document.getElementById("genero").addEventListener("change", function () {
+        manejarCambio("genero", "especie");
+      });
+
+      // Puedes continuar añadiendo más niveles según sea necesario
+
+    });
+  </script>
