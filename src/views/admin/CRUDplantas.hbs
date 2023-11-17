@@ -66,7 +66,7 @@
         id="RasgosEspecificos"
         style="height: 100px"
       ></textarea>
-      <label for="RasgosEspecificos" class="fw-bold z-index-1">Rasgos Específicos</label>
+      <label for="RasgosEspecificos">Rasgos Específicos</label>
     </div>
 
     <div class="form-floating mb-3">
@@ -76,140 +76,130 @@
         id="InformacionCuidado"
         style="height: 120px"
       ></textarea>
-      <label for="InformacionCuidado" class="fw-bold z-index-1">Información de cuidado</label>
+      <label for="InformacionCuidado" >Información de cuidado</label>
     </div>
 
-    <div class="mb-3">
-      <label for="reino" class="form-label">Reino:</label>
-      <select id="reino" name="reino" class="form-select"></select>
-    </div>
+<div class="mb-3">
+  <label for="reino" class="form-label">Reino:</label>
+  <select id="reinoSelect" name="reino" class="form-select" disabled></select>
+</div>
 
-    <div class="mb-3">
-      <label for="filo" class="form-label">Filo:</label>
-      <select id="filo" name="filo" class="form-select"></select>
-    </div>
+<div class="mb-3">
+  <label for="filo" class="form-label">Filo:</label>
+  <select id="filoSelect" name="filo" class="form-select"></select>
+</div>
 
-    <div class="mb-3">
-      <label for="clase" class="form-label">Clase:</label>
-      <select id="clase" name="clase" class="form-select"></select>
-    </div>
+<div class="mb-3">
+  <label for="clase" class="form-label">Clase:</label>
+  <select id="claseSelect" name="clase" class="form-select"></select>
+</div>
 
-    <div class="mb-3">
-      <label for="orden" class="form-label">Orden:</label>
-      <select id="orden" name="orden" class="form-select"></select>
-    </div>
+<div class="mb-3">
+  <label for="orden" class="form-label">Orden:</label>
+  <select id="ordenSelect" name="orden" class="form-select"></select>
+</div>
 
-    <div class="mb-3">
-      <label for="familia" class="form-label">Familia:</label>
-      <select id="familia" name="familia" class="form-select"></select>
-    </div>
+<div class="mb-3">
+  <label for="familia" class="form-label">Familia:</label>
+  <select id="familiaSelect" name="familia" class="form-select"></select>
+</div>
 
-    <div class="mb-3">
-      <label for="genero" class="form-label">Género:</label>
-      <select id="genero" name="genero" class="form-select"></select>
-    </div>
+<div class="mb-3">
+  <label for="genero" class="form-label">Género:</label>
+  <select id="generoSelect" name="genero" class="form-select"></select>
+</div>
 
-    <div class="mb-3">
-      <label for="especie" class="form-label">Especie:</label>
-      <select id="especie" name="especie" class="form-select"></select>
-    </div>
+<div class="mb-3">
+  <label for="especie" class="form-label">Especie:</label>
+  <select id="especieSelect" name="especie" class="form-select"></select>
+</div>
 
-    <div class="mb-3">
-      <button type="submit" class="btn btn-primary">Enviar</button>
-    </div>
-
+<div class="mb-3">
+  <button type="submit" class="btn btn-primary">Enviar</button>
+</div>
   </form>
 
 </div>
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      var taxonomia = {
-        "reinos": ["Animalia", "Plantae"],
+  document.addEventListener("DOMContentLoaded", function () {
+   var taxonomia = {
+        "reinos": ["Plantae"],
         "filos": {
-          "Animalia": ["Chordata", "Arthropoda", "Mollusca"],
           "Plantae": ["Angiospermae", "Bryophyta", "Pteridophyta"]
         },
         "clases": {
           "Chordata": ["Mammalia", "Aves", "Reptilia"],
           "Arthropoda": ["Insecta", "Arachnida"],
           "Mollusca": ["Gastropoda", "Bivalvia"]
-          // Agrega más clases según sea necesario
         },
         "ordenes": {
           "Mammalia": ["Primates", "Carnivora", "Rodentia"],
           "Insecta": ["Coleoptera", "Lepidoptera", "Diptera"]
-          // Agrega más órdenes según sea necesario
         },
         "familias": {
           "Primates": ["Hominidae", "Cercopithecidae"],
           "Coleoptera": ["Scarabaeidae", "Cerambycidae"]
-          // Agrega más familias según sea necesario
         },
         "generos": {
           "Hominidae": ["Homo", "Pan"],
           "Scarabaeidae": ["Scarabaeus", "Phanaeus"]
-          // Agrega más géneros según sea necesario
         },
         "especies": {
           "Homo": ["sapiens"],
           "Scarabaeus": ["procerus"]
-          // Agrega más especies según sea necesario
         }
       };
+ function llenarSelect(selector, opciones) {
+    var select = document.getElementById(selector);
+    for (var i = 0; i < opciones.length; i++) {
+      var option = document.createElement("option");
+      option.value = opciones[i];
+      option.text = opciones[i];
+      select.add(option);
+    }
+  }
 
-      function llenarSelect(selector, opciones) {
-        var select = document.getElementById(selector);
-        for (var i = 0; i < opciones.length; i++) {
-          var option = document.createElement("option");
-          option.value = opciones[i];
-          option.text = opciones[i];
-          select.add(option);
-        }
-      }
+  function actualizarSelect(selector, opciones) {
+    var select = document.getElementById(selector);
+    select.innerHTML = "<option value=''>Selecciona una opción</option>";
+    if (opciones) {
+      llenarSelect(selector, opciones);
+    }
+  }
 
-      function actualizarSelect(selector, opciones) {
-        var select = document.getElementById(selector);
-        select.innerHTML = "<option value=''>Selecciona una opción</option>";
-        if (opciones) {
-          llenarSelect(selector, opciones);
-        }
-      }
+  function manejarCambio(selectorActual, selectorSiguiente) {
+    var selectedValue = document.getElementById(selectorActual).value;
+    if (selectedValue && taxonomia[selectorSiguiente] && taxonomia[selectorSiguiente][selectedValue]) {
+      actualizarSelect(selectorSiguiente, taxonomia[selectorSiguiente][selectedValue]);
+    } else {
+      actualizarSelect(selectorSiguiente);
+    }
+  }
 
-      function manejarCambio(selectorActual, selectorSiguiente) {
-        var selectedValue = document.getElementById(selectorActual).value;
-        if (selectedValue && taxonomia[selectorSiguiente] && taxonomia[selectorSiguiente][selectedValue]) {
-          actualizarSelect(selectorSiguiente, taxonomia[selectorSiguiente][selectedValue]);
-        } else {
-          actualizarSelect(selectorSiguiente);
-        }
-      }
+  llenarSelect("reinoSelect", taxonomia.reinos);
+  document.getElementById("reinoSelect").addEventListener("change", function () {
+    manejarCambio("reinoSelect", "filoSelect");
+  });
+  document.getElementById("filoSelect").addEventListener("change", function () {
+    manejarCambio("filoSelect", "claseSelect");
+  });
 
-      llenarSelect("reino", taxonomia.reinos);
-      document.getElementById("reino").addEventListener("change", function () {
-        manejarCambio("reino", "filo");
-      });
+  document.getElementById("claseSelect").addEventListener("change", function () {
+    manejarCambio("claseSelect", "ordenSelect");
+  });
 
-      document.getElementById("filo").addEventListener("change", function () {
-        manejarCambio("filo", "clase");
-      });
+  document.getElementById("ordenSelect").addEventListener("change", function () {
+    manejarCambio("ordenSelect", "familiaSelect");
+  });
 
-      document.getElementById("clase").addEventListener("change", function () {
-        manejarCambio("clase", "orden");
-      });
+  document.getElementById("familiaSelect").addEventListener("change", function () {
+    manejarCambio("familiaSelect", "generoSelect");
+  });
 
-      document.getElementById("orden").addEventListener("change", function () {
-        manejarCambio("orden", "familia");
-      });
+  document.getElementById("generoSelect").addEventListener("change", function () {
+    manejarCambio("generoSelect", "especieSelect");
+  });
+});
+</script>
 
-      document.getElementById("familia").addEventListener("change", function () {
-        manejarCambio("familia", "genero");
-      });
-
-      document.getElementById("genero").addEventListener("change", function () {
-        manejarCambio("genero", "especie");
-      });
-
-      // Puedes continuar añadiendo más niveles según sea necesario
-
-    });
-  </script>
+</script>
