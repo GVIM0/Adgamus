@@ -1,205 +1,297 @@
 <style>
-  *{ box-sizing: border-box; font-family: 'Source Sans 3', sans-serif;
-  text-decoration: none; } body{ overflow-y: auto; padding-top: 50px; }
+  * {
+    box-sizing: border-box;
+    font-family: 'Source Sans 3', sans-serif;
+    text-decoration: none;
+  }
+
+  body {
+    overflow-y: auto;
+    padding-top: 50px;
+    background: none;
+  }
 </style>
 
-<div
-  class="container-md w-50 p-3 bg-success-subtle text-emphasis-success border border-black rounded px-5 g-col-6"
->
-  <h1 class="text-center p-5 fw-bold fs-3">CRUD plantas</h1>
-  <form>
-    <div class="mb-3">
-      <label type="text" class="input-group text-center fw-bold mb-3">Tipos de
-        cultivos</label>
-      <select class="form-select" aria-label="Default select example">
-        <option selected>Seleccionar</option>
-        <option value="1">Uno</option>
-        <option value="2">Dos</option>
-        <option value="3">Tres</option>
-      </select>
-    </div>
+<div class="container-sm">
+  <form action="" method="POST" class="needs-validation" novalidate>
 
-    <div class="mb-3">
-      <label type="text" class="input-group text-center fw-bold mb-3">Region
-        Geografica</label>
-      <select class="form-select" aria-label="Default select example">
-        <option selected>Seleccionar</option>
-        <option value="1">Uno</option>
-        <option value="2">Dos</option>
-        <option value="3">Tres</option>
-      </select>
-    </div>
+    <div class="card text-center">
 
-    <div class="mb-3">
-      <label
-        type="text"
-        class="input-group text-center fw-bold mb-3"
-      >Seleccionar imagen</label>
-      <div class="input-group mb-3">
-        <input type="file" class="form-control" id="inputGroupFile02" />
-        <label class="input-group-text" for="inputGroupFile02">Subir</label>
+      <div class="card-header">
+        GESTIÓN DE PLANTAS
       </div>
+
+      <div class="card-body">
+        <div class="row">
+
+          <div class="col-sm-6">
+            <div class="card">
+              <div class="card-body">
+
+                <div class="input-group mb-3">
+                  <label class="input-group-text" for="tipo">Tipo</label>
+                  <select class="form-select" id="tipo" name="tipo" required>
+                    <option selected disabled value="">Selecciona una opción</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </select>
+                  <div class="invalid-feedback">
+                    Por favor, selecciona un tipo.
+                  </div>
+                </div>
+
+                <div class="input-group mb-3">
+                  <label class="input-group-text" for="regionGeografica">Región Geográfica</label>
+                  <select class="form-select" id="regionGeografica" name="regionGeografica" required>
+                    <option selected disabled value="">Selecciona una opción</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </select>
+                  <div class="invalid-feedback">
+                    Por favor, selecciona una región geográfica.
+                  </div>
+                </div>
+
+                <div class="input-group mb-3">
+                  <input type="file" class="form-control" id="foto" name="foto" />
+                  <label class="input-group-text" for="foto">Subir</label>
+                </div>
+
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1">Rasgos Específicos</span>
+                  <input type="text" class="form-control" name="rasgosEspecificos" placeholder="Rasgos Específicos"
+                    aria-label="rasgosEspecificos" aria-describedby="rasgosEspecificos" required>
+                  <div class="invalid-feedback">
+                    Por favor, proporciona rasgos específicos.
+                  </div>
+                </div>
+
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1">Información de Cuidado</span>
+                  <input type="text" class="form-control" name="informacionCuidado"
+                    placeholder="Información de Cuidado" aria-label="informacionCuidado"
+                    aria-describedby="informacionCuidado" required>
+                  <div class="invalid-feedback">
+                    Por favor, proporciona información de cuidado.
+                  </div>
+                </div>
+
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1">Nombre Común</span>
+                  <input type="text" class="form-control" name="nombreComun" placeholder="Nombre Común"
+                    aria-label="nombreComun" aria-describedby="nombreComun" required>
+                  <div class="invalid-feedback">
+                    Por favor, proporciona un nombre común.
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-6">
+            <div class="card">
+              <div class="card-body">
+
+                <div class="input-group mb-3">
+                  <label class="input-group-text" for="reino">Reino</label>
+                  <select class="form-select" id="reino" name="reino" required>
+                    <option selected disabled value="">Selecciona una opción</option>
+                    <option>EjemploReino One</option>
+                    <option>EjemploReino Two</option>
+                    <option>EjemploReino Three</option>
+                  </select>
+                  <div class="invalid-feedback">
+                    Por favor, selecciona un reino.
+                  </div>
+                </div>
+
+                <div class="input-group mb-3">
+                  <label class="input-group-text" for="filo">Filo</label>
+                  <select class="form-select" id="filo" name="filo" required>
+                    <option selected disabled value="">Selecciona una opción</option>
+                    <option>EjemploFilo One</option>
+                    <option>EjemploFilo Two</option>
+                    <option>EjemploFilo Three</option>
+                  </select>
+                  <div class="invalid-feedback">
+                    Por favor, selecciona un filo.
+                  </div>
+                </div>
+
+                <div class="input-group mb-3">
+                  <label class="input-group-text" for="clase">Clase</label>
+                  <select class="form-select" id="clase" name="clase" required>
+                    <option selected disabled value="">Selecciona una opción</option>
+                    <option>EjemploClase One</option>
+                    <option>EjemploClase Two</option>
+                    <option>EjemploClase Three</option>
+                  </select>
+                  <div class="invalid-feedback">
+                    Por favor, selecciona una clase.
+                  </div>
+                </div>
+
+                <div class="input-group mb-3">
+                  <label class="input-group-text" for="orden">Orden</label>
+                  <select class="form-select" id="orden" name="orden" required>
+                    <option selected disabled value="">Selecciona una opción</option>
+                    <option>EjemploOrden One</option>
+                    <option>EjemploOrden Two</option>
+                    <option>EjemploOrden Three</option>
+                  </select>
+                  <div class="invalid-feedback">
+                    Por favor, selecciona un orden.
+                  </div>
+                </div>
+
+                <div class="input-group mb-3">
+                  <label class="input-group-text" for="familia">Familia</label>
+                  <select class="form-select" id="familia" name="familia" required>
+                    <option selected disabled value="">Selecciona una opción</option>
+                    <option>EjemploFamilia One</option>
+                    <option>EjemploFamilia Two</option>
+                    <option>EjemploFamilia Three</option>
+                  </select>
+                  <div class="invalid-feedback">
+                    Por favor, selecciona una familia.
+                  </div>
+                </div>
+
+                <div class="input-group mb-3">
+                  <label class="input-group-text" for="genero">Género</label>
+                  <select class="form-select" id="genero" name="genero" required>
+                    <option selected disabled value="">Selecciona una opción</option>
+                    <option>EjemploGénero One</option>
+                    <option>EjemploGénero Two</option>
+                    <option>EjemploGénero Three</option>
+                  </select>
+                  <div class="invalid-feedback">
+                    Por favor, selecciona un género.
+                  </div>
+                </div>
+
+                <div class="input-group mb-3">
+                  <label class="input-group-text" for="especie">Especie</label>
+                  <select class="form-select" id="especie" name="especie" required>
+                    <option selected disabled value="">Selecciona una opción</option>
+                    <option>EjemploEspecie One</option>
+                    <option>EjemploEspecie Two</option>
+                    <option>EjemploEspecie Three</option>
+                  </select>
+                  <div class="invalid-feedback">
+                    Por favor, selecciona una especie.
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="card-footer text-muted">
+        <button type="submit" class="btn btn-success">Enviar</button>
+        {{#if error}}
+        <p class="text-red-500 font-bold text-lg my-3">*{{error}}</p>
+        {{/if}}
+      </div>
+
     </div>
-
-    <div class="input-group mb-3">
-      <label type="text" class="input-group text-center fw-bold mb-3">Nombre
-        científico</label>
-      <span class="input-group-text">Nombre científico</span>
-      <input
-        type="text"
-        aria-label="genero"
-        class="form-control"
-        placeholder="Género"
-      />
-      <input
-        type="text"
-        aria-label="especie"
-        class="form-control"
-        placeholder="Especie"
-      />
-    </div>
-
-    <div class="form-floating mb-3">
-      <textarea
-        class="form-control"
-        placeholder="Rasgos especificos aquí"
-        id="RasgosEspecificos"
-        style="height: 100px"
-      ></textarea>
-      <label for="RasgosEspecificos">Rasgos Específicos</label>
-    </div>
-
-    <div class="form-floating mb-3">
-      <textarea
-        class="form-control"
-        placeholder="Información de cuidado"
-        id="InformacionCuidado"
-        style="height: 120px"
-      ></textarea>
-      <label for="InformacionCuidado" >Información de cuidado</label>
-    </div>
-
-<div class="mb-3">
-  <label for="reino" class="form-label">Reino:</label>
-  <select id="reinoSelect" name="reino" class="form-select" disabled></select>
-</div>
-
-<div class="mb-3">
-  <label for="filo" class="form-label">Filo:</label>
-  <select id="filoSelect" name="filo" class="form-select"></select>
-</div>
-
-<div class="mb-3">
-  <label for="clase" class="form-label">Clase:</label>
-  <select id="claseSelect" name="clase" class="form-select"></select>
-</div>
-
-<div class="mb-3">
-  <label for="orden" class="form-label">Orden:</label>
-  <select id="ordenSelect" name="orden" class="form-select"></select>
-</div>
-
-<div class="mb-3">
-  <label for="familia" class="form-label">Familia:</label>
-  <select id="familiaSelect" name="familia" class="form-select"></select>
-</div>
-
-<div class="mb-3">
-  <label for="genero" class="form-label">Género:</label>
-  <select id="generoSelect" name="genero" class="form-select"></select>
-</div>
-
-<div class="mb-3">
-  <label for="especie" class="form-label">Especie:</label>
-  <select id="especieSelect" name="especie" class="form-select"></select>
-</div>
-
-<div class="mb-3">
-  <button type="submit" class="btn btn-primary">Enviar</button>
-</div>
   </form>
 
+  <table class="table table-striped" id="cultivosTable">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nombre Común</th>
+      <th scope="col">Género</th>
+      <th scope="col">Especie</th>
+      <th scope="col">Tipo</th>
+      <th scope="col">Región Geográfica</th>
+      <th scope="col">Rasgos Específicos</th>
+      <th scope="col">Información de cuidado</th>
+      <th scope="col"># Taxonomía</th>
+      <th scope="col">Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
 </div>
+
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
-   var taxonomia = {
-        "reinos": ["Plantae"],
-        "filos": {
-          "Plantae": ["Angiospermae", "Bryophyta", "Pteridophyta"]
-        },
-        "clases": {
-          "Chordata": ["Mammalia", "Aves", "Reptilia"],
-          "Arthropoda": ["Insecta", "Arachnida"],
-          "Mollusca": ["Gastropoda", "Bivalvia"]
-        },
-        "ordenes": {
-          "Mammalia": ["Primates", "Carnivora", "Rodentia"],
-          "Insecta": ["Coleoptera", "Lepidoptera", "Diptera"]
-        },
-        "familias": {
-          "Primates": ["Hominidae", "Cercopithecidae"],
-          "Coleoptera": ["Scarabaeidae", "Cerambycidae"]
-        },
-        "generos": {
-          "Hominidae": ["Homo", "Pan"],
-          "Scarabaeidae": ["Scarabaeus", "Phanaeus"]
-        },
-        "especies": {
-          "Homo": ["sapiens"],
-          "Scarabaeus": ["procerus"]
-        }
-      };
- function llenarSelect(selector, opciones) {
-    var select = document.getElementById(selector);
-    for (var i = 0; i < opciones.length; i++) {
-      var option = document.createElement("option");
-      option.value = opciones[i];
-      option.text = opciones[i];
-      select.add(option);
-    }
-  }
+  // Example starter JavaScript for disabling form submissions if there are invalid fields
+  (function () {
+    'use strict'
 
-  function actualizarSelect(selector, opciones) {
-    var select = document.getElementById(selector);
-    select.innerHTML = "<option value=''>Selecciona una opción</option>";
-    if (opciones) {
-      llenarSelect(selector, opciones);
-    }
-  }
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    var forms = document.querySelectorAll('.needs-validation')
 
-  function manejarCambio(selectorActual, selectorSiguiente) {
-    var selectedValue = document.getElementById(selectorActual).value;
-    if (selectedValue && taxonomia[selectorSiguiente] && taxonomia[selectorSiguiente][selectedValue]) {
-      actualizarSelect(selectorSiguiente, taxonomia[selectorSiguiente][selectedValue]);
-    } else {
-      actualizarSelect(selectorSiguiente);
-    }
-  }
+    // Loop over them and prevent submission
+    Array.prototype.slice.call(forms)
+      .forEach(function (form) {
+        form.addEventListener('submit', function (event) {
+          if (!form.checkValidity()) {
+            event.preventDefault()
+            event.stopPropagation()
+          }
 
-  llenarSelect("reinoSelect", taxonomia.reinos);
-  document.getElementById("reinoSelect").addEventListener("change", function () {
-    manejarCambio("reinoSelect", "filoSelect");
-  });
-  document.getElementById("filoSelect").addEventListener("change", function () {
-    manejarCambio("filoSelect", "claseSelect");
-  });
-
-  document.getElementById("claseSelect").addEventListener("change", function () {
-    manejarCambio("claseSelect", "ordenSelect");
-  });
-
-  document.getElementById("ordenSelect").addEventListener("change", function () {
-    manejarCambio("ordenSelect", "familiaSelect");
-  });
-
-  document.getElementById("familiaSelect").addEventListener("change", function () {
-    manejarCambio("familiaSelect", "generoSelect");
-  });
-
-  document.getElementById("generoSelect").addEventListener("change", function () {
-    manejarCambio("generoSelect", "especieSelect");
-  });
-});
+          form.classList.add('was-validated')
+        }, false)
+      })
+  })()
 </script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // Hacer una solicitud al servidor para obtener los datos de la base de datos
+  fetch('/readPlant')
+    .then(response => response.json())
+    .then(data => {
+      // Obtener la tabla
+      const table = document.getElementById('cultivosTable').getElementsByTagName('tbody')[0];
 
+      // Iterar sobre los datos y agregar filas a la tabla
+      data.forEach(row => {
+        const newRow = table.insertRow(table.rows.length);
+
+        // Iterar sobre los valores y agregar celdas a la fila
+        Object.values(row).forEach((value, index) => {
+          const cell = newRow.insertCell();
+
+          // Agregar texto a la celda
+          cell.appendChild(document.createTextNode(value));
+
+          // Agregar botones solo en la última columna (Acciones)
+          if (index === Object.values(row).length - 1) {
+            const actionsCell = newRow.insertCell();
+
+            const editButton = document.createElement('button');
+            editButton.textContent = 'Editar';
+            editButton.classList.add('btn', 'btn-info');
+            editButton.addEventListener('click', () => {
+              // Lógica para editar el registro
+              window.location.href = `/editar/${row.idCultivo}`; // Reemplaza con tu ruta de edición
+            });
+            actionsCell.appendChild(editButton);
+
+            const deleteButton = document.createElement('button');
+            deleteButton.textContent = 'Eliminar';
+            deleteButton.classList.add('btn', 'btn-danger');
+            deleteButton.addEventListener('click', () => {
+              // Lógica para eliminar el registro
+              if (confirm('¿Estás seguro de que deseas eliminar este registro?')) {
+                window.location.href = `/eliminar/${row.idCultivo}`; // Reemplaza con tu ruta de eliminación
+              }
+            });
+            actionsCell.appendChild(deleteButton);
+          }
+        });
+      });
+    })
+    .catch(error => console.error('Error al obtener datos del servidor: ', error));
+});
 </script>

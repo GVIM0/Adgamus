@@ -61,7 +61,7 @@ VALUES
 DROP TABLE IF EXISTS `Adgamus`.`Catalogo_Taxonomia_C` ;
 
 CREATE TABLE IF NOT EXISTS `Adgamus`.`Catalogo_Taxonomia_C` (
-    `idCatalogo_Taxonomia` INT NOT NULL,
+    `idCatalogo_Taxonomia` INT NOT NULL AUTO_INCREMENT,
     `Reino` VARCHAR(45),
     `Filo` VARCHAR(45),
     `Clase` VARCHAR(45),
@@ -358,3 +358,5 @@ CREATE TABLE IF NOT EXISTS `Adgamus`.`Consume` (
 ) ENGINE = InnoDB;
 
 select * from Usuario;
+select * from Cultivo;
+ select * from Catalogo_Taxonomia_C;
