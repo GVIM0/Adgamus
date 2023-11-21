@@ -7,6 +7,8 @@ const bodyParser = require("body-parser");
 
 const loginRoutes = require("./routes/login");
 const adminRoutes = require("./routes/admin");
+const generalRoutes = require("./routes/general");
+
 
 const app = express();
 app.set("port", 4000);
@@ -37,7 +39,7 @@ const dbConfig = {
   host: "localhost",
   user: "root",
   password: "n0m3l0",
-  port: "3308",
+  port: "3306",
   database: "Adgamus",
 };
 
@@ -74,6 +76,7 @@ app.listen(app.get("port"), () => {
 
 app.use("/", loginRoutes);
 app.use("/", adminRoutes);
+app.use("/", generalRoutes);
 
 app.get("/", (req, res) => {
   if (req.session.loggedin == true) {
