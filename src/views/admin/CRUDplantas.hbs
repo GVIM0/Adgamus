@@ -60,19 +60,16 @@
                 </div>
 
                 <div class="input-group mb-3">
-                  <span class="input-group-text" id="basic-addon1">Rasgos Específicos</span>
-                  <input type="text" class="form-control" name="rasgosEspecificos" placeholder="Rasgos Específicos"
-                    aria-label="rasgosEspecificos" aria-describedby="rasgosEspecificos" required>
+                    <span class="input-group-text">Rasgos Específicos</span>
+                    <textarea class="form-control" aria-label="rasgosEspecificos" name="rasgosEspecificos" required></textarea>
                   <div class="invalid-feedback">
                     Por favor, proporciona rasgos específicos.
                   </div>
                 </div>
 
                 <div class="input-group mb-3">
-                  <span class="input-group-text" id="basic-addon1">Información de Cuidado</span>
-                  <input type="text" class="form-control" name="informacionCuidado"
-                    placeholder="Información de Cuidado" aria-label="informacionCuidado"
-                    aria-describedby="informacionCuidado" required>
+                  <span class="input-group-text">Información de cuidado</span>
+                    <textarea class="form-control" aria-label="informacionCuidado" name="informacionCuidado" required></textarea>
                   <div class="invalid-feedback">
                     Por favor, proporciona información de cuidado.
                   </div>
@@ -212,8 +209,6 @@
       <th scope="col">Especie</th>
       <th scope="col">Tipo</th>
       <th scope="col">Región Geográfica</th>
-      <th scope="col">Rasgos Específicos</th>
-      <th scope="col">Información de cuidado</th>
       <th scope="col"># Taxonomía</th>
       <th scope="col">Acciones</th>
     </tr>
@@ -274,7 +269,7 @@ document.addEventListener('DOMContentLoaded', () => {
             editButton.classList.add('btn', 'btn-info');
             editButton.addEventListener('click', () => {
               // Lógica para editar el registro
-              window.location.href = `/editar/${row.idCultivo}`; // Reemplaza con tu ruta de edición
+              window.location.href = `/redirectUpdatePlant/${row.idCultivo}`;
             });
             actionsCell.appendChild(editButton);
 
@@ -284,7 +279,7 @@ document.addEventListener('DOMContentLoaded', () => {
             deleteButton.addEventListener('click', () => {
               // Lógica para eliminar el registro
               if (confirm('¿Estás seguro de que deseas eliminar este registro?')) {
-                window.location.href = `/eliminar/${row.idCultivo}`; // Reemplaza con tu ruta de eliminación
+               
               }
             });
             actionsCell.appendChild(deleteButton);
@@ -293,5 +288,6 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     })
     .catch(error => console.error('Error al obtener datos del servidor: ', error));
-});
-</script>
+}); 
+</script> 
+ 

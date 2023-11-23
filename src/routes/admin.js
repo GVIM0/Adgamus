@@ -5,6 +5,8 @@ const router = express.Router();
 router.get('/CRUDplantas', AdminController.CRUDplantas);
 router.post('/CRUDplantas', AdminController.createPlants);
 router.get('/readPlant', AdminController.readPlants);
+router.get('/redirectUpdatePlant/:idCultivo', AdminController.redirectUpdatePlant);
+router.post('/deletePlant', AdminController.DeletePlant);
 
 
 module.exports = router; 

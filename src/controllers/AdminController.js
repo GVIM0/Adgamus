@@ -1,3 +1,4 @@
+const { render } = require("express/lib/response");
 
 function CRUDplantas(req, res){
         res.render('admin/CRUDplantas',{ name: req.session.name, admin: req.session.admin });
@@ -69,7 +70,7 @@ function readPlants(req, res){
             return res.status(500).send('Error interno del servidor');
         }
 
-        const readPlantQuery = 'SELECT idCultivo, Nombre_Comun, Nombre_Genero, Nombre_Especie, Tipo, RegionGeografica, Rasgos_Especificos, Informacion_Cuidado, Catalogo_Taxonomia_idCatalogo_Taxonomia FROM Cultivo';
+        const readPlantQuery = 'SELECT idCultivo, Nombre_Comun, Nombre_Genero, Nombre_Especie, Tipo, RegionGeografica, Catalogo_Taxonomia_idCatalogo_Taxonomia FROM Cultivo';
 
         try{
 
@@ -86,12 +87,19 @@ function readPlants(req, res){
 
         }
 
-    });
+    });  
+}
+
+function redirectUpdatePlant (req, res){
+
+    res.render('admin/UpdatePlantas',{ name: req.session.name, admin: req.session.admin });
+    
 }
 
 
 module.exports = {
     CRUDplantas,
     createPlants, 
-    readPlants, 
+    readPlants,
+    redirectUpdatePlant,  
 }
