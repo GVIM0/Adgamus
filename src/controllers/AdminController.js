@@ -91,15 +91,21 @@ function readPlants(req, res){
 }
 
 function redirectUpdatePlant (req, res){
-
+    
     res.render('admin/UpdatePlantas',{ name: req.session.name, admin: req.session.admin });
     
 }
 
+function DeletePlant(req, res){
+ 
+    res.render('admin/UpdatePlantas',{ name: req.session.name, admin: req.session.admin });
+
+}
 
 module.exports = {
     CRUDplantas,
     createPlants, 
     readPlants,
     redirectUpdatePlant,  
+    DeletePlant,
 }

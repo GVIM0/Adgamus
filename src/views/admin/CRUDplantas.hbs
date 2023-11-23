@@ -279,7 +279,7 @@ document.addEventListener('DOMContentLoaded', () => {
             deleteButton.addEventListener('click', () => {
               // Lógica para eliminar el registro
               if (confirm('¿Estás seguro de que deseas eliminar este registro?')) {
-               
+                window.location.href = `/deletePlant/${row.idCultivo}`;
               }
             });
             actionsCell.appendChild(deleteButton);
