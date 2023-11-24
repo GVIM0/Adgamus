@@ -194,8 +194,27 @@
         <button type="submit" class="btn btn-success">Enviar</button>
         {{#if error}}
         <p class="text-red-500 font-bold text-lg my-3">*{{error}}</p>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                Swal.fire({
+                    title: 'Error',
+                    text: 'Ha ocurrido algún error.',
+                    icon: 'error'
+                });
+            });
+        </script>
+        {{else}}
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                Swal.fire({
+                    title: 'Éxito',
+                    text: 'El registro se ha realizado correctamente.',
+                    icon: 'success'
+                });
+            });
+        </script>
         {{/if}}
-      </div>
+    </div>
 
     </div>
   </form>
@@ -219,90 +238,84 @@
 </div>
 
 <script>
-  // Example starter JavaScript for disabling form submissions if there are invalid fields
-  (function () {
-    'use strict'
-
-    // Fetch all the forms we want to apply custom Bootstrap validation styles to
-    var forms = document.querySelectorAll('.needs-validation')
-
-    // Loop over them and prevent submission
-    Array.prototype.slice.call(forms)
-      .forEach(function (form) {
-        form.addEventListener('submit', function (event) {
-          if (!form.checkValidity()) {
-            event.preventDefault()
-            event.stopPropagation()
-          }
-
-          form.classList.add('was-validated')
-        }, false)
-      })
-  })()
-</script>
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  // Hacer una solicitud al servidor para obtener los datos de la base de datos
-  fetch('/readPlant')
-    .then(response => response.json())
-    .then(data => {
-      // Obtener la tabla
-      const table = document.getElementById('cultivosTable').getElementsByTagName('tbody')[0];
-
-      // Iterar sobre los datos y agregar filas a la tabla
-      data.forEach(row => {
-        const newRow = table.insertRow(table.rows.length);
-
-        // Iterar sobre los valores y agregar celdas a la fila
-        Object.values(row).forEach((value, index) => {
-          const cell = newRow.insertCell();
-
-          // Agregar texto a la celda
-          cell.appendChild(document.createTextNode(value));
-
-          // Agregar botones solo en la última columna (Acciones)
-          if (index === Object.values(row).length - 1) {
-            const actionsCell = newRow.insertCell();
-
-            const editButton = document.createElement('button');
-            editButton.textContent = 'Editar';
-            editButton.classList.add('btn', 'btn-info');
-            editButton.addEventListener('click', () => {
-              // Lógica para editar el registro
-              window.location.href = `/redirectUpdatePlant/${row.idCultivo}`;
-            });
-            actionsCell.appendChild(editButton);
-
-            const deleteButton = document.createElement('button');
-            deleteButton.textContent = 'Eliminar';
-            deleteButton.classList.add('btn', 'btn-danger');
-            deleteButton.addEventListener('click', async () => {
-              if (confirm('¿Estás seguro de que deseas eliminar este registro?')) {
-                  try {
-                      const response = await fetch(`/deletePlant/${row.idCultivo}`, {
-                          method: 'DELETE',
-                      });
-
-                      const result = await response.json();
-
-                      if (response.ok) {
-                          alert('Registro eliminado exitosamente');
-                          newRow.remove();
-                      } else {
-                          alert(`Error al eliminar el registro: ${result.message}`);
-                      }
-                  } catch (error) {
-                      console.error('Error al eliminar el registro: ', error);
-                      alert('Error al eliminar el registro');
-                  }
-              }
-          });
-            actionsCell.appendChild(deleteButton);
-          }
-        });
+  document.addEventListener('DOMContentLoaded', () => {
+    // Bootstrap validation
+    const forms = document.querySelectorAll('.needs-validation');
+    forms.forEach(form => {
+      form.addEventListener('submit', event => {
+        if (!form.checkValidity()) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        form.classList.add('was-validated');
       });
-    })
-    .catch(error => console.error('Error al obtener datos del servidor: ', error));
-}); 
-</script> 
+    });
+
+    // Fetch data and populate table
+    fetch('/readPlant')
+      .then(response => response.json())
+      .then(data => {
+        const table = document.getElementById('cultivosTable').getElementsByTagName('tbody')[0];
+
+        data.forEach(row => {
+          const newRow = table.insertRow(table.rows.length);
+
+          Object.values(row).forEach((value, index) => {
+            const cell = newRow.insertCell();
+            cell.appendChild(document.createTextNode(value));
+
+            if (index === Object.values(row).length - 1) {
+              const actionsCell = newRow.insertCell();
+
+              const editButton = document.createElement('button');
+              editButton.textContent = 'Editar';
+              editButton.classList.add('btn', 'btn-info');
+              editButton.addEventListener('click', () => {
+                window.location.href = `/redirectUpdatePlant/${row.idCultivo}`;
+              });
+              actionsCell.appendChild(editButton);
+
+              const deleteButton = document.createElement('button');
+              deleteButton.textContent = 'Eliminar';
+              deleteButton.classList.add('btn', 'btn-danger');
+              deleteButton.addEventListener('click', async () => {
+              try {
+                const { value: confirmDelete } = await Swal.fire({
+                  title: '¿Estás seguro?',
+                  text: 'No podrás revertir esto',
+                  icon: 'warning',
+                  showCancelButton: true,
+                  confirmButtonColor: '#3085d6',
+                  cancelButtonColor: '#d33',
+                  cancelButtonText: 'Cancelar',
+                  confirmButtonText: 'Sí, eliminarlo'
+                });
+
+                if (confirmDelete) {
+                  const response = await fetch(`/deletePlant/${row.idCultivo}`, {
+                    method: 'DELETE',
+                  });
+
+                  const result = await response.json();
+
+                  if (response.ok) {
+                    Swal.fire('¡Eliminado!', 'El registro ha sido eliminado correctamente.', 'success');
+                    newRow.remove();
+                  } else {
+                    Swal.fire('Error', `Error al eliminar el registro: ${result.message}`, 'error');
+                  }
+                }
+              } catch (error) {
+                console.error('Error al eliminar el registro: ', error);
+                Swal.fire('Error', 'Error al eliminar el registro', 'error');
+              }
+           });
+              actionsCell.appendChild(deleteButton);
+            }
+          });
+        });
+      })
+      .catch(error => console.error('Error al obtener datos del servidor: ', error));
+  });
+</script>
  

@@ -97,11 +97,8 @@ function redirectUpdatePlant (req, res){
 }
 
 function deletePlant(req, res) {
-
-    console.log('Body:', req.body);
-    console.log('Params:', req.params);         
+  
     const idCultivo = req.params.idCultivo;
-
   
     req.getConnection(async (err, conn) => {
       if (err) {
