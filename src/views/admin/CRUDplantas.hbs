@@ -276,12 +276,27 @@ document.addEventListener('DOMContentLoaded', () => {
             const deleteButton = document.createElement('button');
             deleteButton.textContent = 'Eliminar';
             deleteButton.classList.add('btn', 'btn-danger');
-            deleteButton.addEventListener('click', () => {
-              // Lógica para eliminar el registro
+            deleteButton.addEventListener('click', async () => {
               if (confirm('¿Estás seguro de que deseas eliminar este registro?')) {
-                window.location.href = `/deletePlant/${row.idCultivo}`;
+                  try {
+                      const response = await fetch(`/deletePlant/${row.idCultivo}`, {
+                          method: 'DELETE',
+                      });
+
+                      const result = await response.json();
+
+                      if (response.ok) {
+                          alert('Registro eliminado exitosamente');
+                          newRow.remove();
+                      } else {
+                          alert(`Error al eliminar el registro: ${result.message}`);
+                      }
+                  } catch (error) {
+                      console.error('Error al eliminar el registro: ', error);
+                      alert('Error al eliminar el registro');
+                  }
               }
-            });
+          });
             actionsCell.appendChild(deleteButton);
           }
         });

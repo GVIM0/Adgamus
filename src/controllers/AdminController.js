@@ -96,16 +96,46 @@ function redirectUpdatePlant (req, res){
     
 }
 
-function DeletePlant(req, res){
- 
-    res.render('admin/UpdatePlantas',{ name: req.session.name, admin: req.session.admin });
+function deletePlant(req, res) {
 
-}
+    console.log('Body:', req.body);
+    console.log('Params:', req.params);         
+    const idCultivo = req.params.idCultivo;
+
+  
+    req.getConnection(async (err, conn) => {
+      if (err) {
+        console.error('Error de conexión a la base de datos:', err);
+        return res.status(500).json({ success: false, message: 'Error interno del servidor' });
+      }
+  
+      await conn.promise().beginTransaction();
+  
+      try {
+        // Eliminar de la tabla "Cultivo"
+        const deletePlantQuery = 'DELETE FROM Cultivo WHERE idCultivo = ?';
+        await conn.promise().query(deletePlantQuery, [idCultivo]);
+  
+        // Eliminar de la tabla "Catalogo_Taxonomia_C"
+        const deleteCatalogoTaxonomiaQuery = 'DELETE FROM Catalogo_Taxonomia_C WHERE idCatalogo_Taxonomia = ?';
+        await conn.promise().query(deleteCatalogoTaxonomiaQuery, [idCultivo]);
+  
+        await conn.promise().commit();
+  
+        res.json({ success: true, message: 'Registros eliminados correctamente' });
+    } catch (error) {
+        await conn.promise().rollback();
+        console.error('Error al eliminar registros:', error);
+        res.status(500).json({ success: false, message: 'Error al eliminar registros: ' + error.message });
+    }
+    });
+  }
+  
 
 module.exports = {
     CRUDplantas,
     createPlants, 
     readPlants,
     redirectUpdatePlant,  
-    DeletePlant,
+    deletePlant,
 }

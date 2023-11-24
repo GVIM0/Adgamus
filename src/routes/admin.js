@@ -6,7 +6,7 @@ router.get('/CRUDplantas', AdminController.CRUDplantas);
 router.post('/CRUDplantas', AdminController.createPlants);
 router.get('/readPlant', AdminController.readPlants);
 router.get('/redirectUpdatePlant/:idCultivo', AdminController.redirectUpdatePlant);
-router.post('/deletePlant/:idCultivo', AdminController.DeletePlant);
+router.delete('/deletePlant/:idCultivo', AdminController.deletePlant);
 
 
 module.exports = router; 

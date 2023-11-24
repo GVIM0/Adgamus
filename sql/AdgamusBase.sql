@@ -71,6 +71,20 @@ CREATE TABLE IF NOT EXISTS `Adgamus`.`Catalogo_Taxonomia_C` (
     `Especie` VARCHAR(45),
     PRIMARY KEY (`idCatalogo_Taxonomia`)
 ) ENGINE = InnoDB;
+-- ----------------------------------------------------
+-- Insertar registros en la tabla Catalogo_Taxonomia_C
+-- -----------------------------------------------------
+
+INSERT INTO `Adgamus`.`Catalogo_Taxonomia_C` 
+    (`Reino`, `Filo`, `Clase`, `Orden`, `Familia`, `Genero`, `Especie`) 
+VALUES 
+    ('Plantae', 'Angiospermae', 'Monocotyledoneae', 'Liliales', 'Liliaceae', 'Agave', 'Agave tequilana'),
+    ('Plantae', 'Angiospermae', 'Dicotyledoneae', 'Asterales', 'Asteraceae', 'Tagetes', 'Tagetes erecta'),
+	('Plantae', 'Angiospermae', 'Monocotyledoneae', 'Zingiberales', 'Zingiberaceae', 'Zingiber', 'Zingiber officinale'),
+    ('Plantae', 'Angiospermae', 'Dicotyledoneae', 'Rosales', 'Rosaceae', 'Fragaria', 'Fragaria x ananassa'),
+    ('Plantae', 'Gimnospermae', 'Pinopsida', 'Pinales', 'Pinaceae', 'Pinus', 'Pinus sylvestris'),
+    ('Plantae', 'Angiospermae', 'Monocotyledoneae', 'Asparagales', 'Asparagaceae', 'Sansevieria', 'Sansevieria trifasciata'),
+    ('Plantae', 'Angiospermae', 'Dicotyledoneae', 'Lamiales', 'Lamiaceae', 'Mentha', 'Mentha piperita');
 
 -- -----------------------------------------------------
 -- Table `Adgamus`.`Cultivo`
@@ -96,6 +110,21 @@ CREATE TABLE IF NOT EXISTS `Adgamus`.`Cultivo` (
         ON DELETE NO ACTION
         ON UPDATE NO ACTION
 ) ENGINE = InnoDB;
+
+-- -----------------------------------------------------
+-- Insertar registros en la tabla Cultivo
+-- -----------------------------------------------------
+INSERT INTO `Adgamus`.`Cultivo` 
+    (`Tipo`, `RegionGeografica`, `Foto`, `Nombre_Comun`, `Nombre_Especie`, `Nombre_Genero`, `Rasgos_Especificos`, `Informacion_Cuidado`, `Catalogo_Taxonomia_idCatalogo_Taxonomia`) 
+VALUES 
+    ('Ornamental', 'Mexico', NULL, 'Agave', 'Agave tequilana', 'Agave', 'Planta utilizada para la producción de tequila', 'Requiere suelos bien drenados y pleno sol', 1),
+    ('Culinario', 'Mexico', NULL, 'Cempasúchil', 'Tagetes erecta', 'Tagetes', 'Flor utilizada en la celebración del Día de los Muertos', 'Se adapta a diferentes suelos, necesita riego moderado', 2),
+	('Culinario', 'Mexico', NULL, 'Jengibre', 'Zingiber officinale', 'Zingiber', 'Raíz utilizada en la cocina y medicina tradicional', 'Necesita suelos bien drenados y sombra parcial', 3),
+    ('Culinario', 'Mexico', NULL, 'Fresa', 'Fragaria x ananassa', 'Fragaria', 'Fruto comestible utilizado en postres', 'Requiere suelos fértiles y sol pleno', 4),
+    ('Ornamental', 'Mexico', NULL, 'Pino', 'Pinus sylvestris', 'Pinus', 'Árbol ornamental y maderero', 'Adaptable a diferentes suelos y climas', 5),
+    ('Ornamental', 'Mexico', NULL, 'Lengua de Suegra', 'Sansevieria trifasciata', 'Sansevieria', 'Planta de interior resistente y decorativa', 'Poca agua y luz indirecta', 6),
+    ('Culinario', 'Mexico', NULL, 'Menta', 'Mentha piperita', 'Mentha', 'Hierba aromática utilizada en cocina y infusiones', 'Necesita suelos húmedos y sol parcial', 7);
+
 
 -- -----------------------------------------------------
 -- Table `Adgamus`.`Busqueda`
