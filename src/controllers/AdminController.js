@@ -90,12 +90,6 @@ function readPlants(req, res){
     });  
 }
 
-function redirectUpdatePlant (req, res){
-    
-    res.render('admin/UpdatePlantas',{ name: req.session.name, admin: req.session.admin });
-    
-}
-
 function deletePlant(req, res) {
   
     const idCultivo = req.params.idCultivo;
@@ -128,12 +122,23 @@ function deletePlant(req, res) {
     });
   }
 
-  function readOnlyPlant(req, res) {
-    req.getConnection((err, conn) => {
-        if (err) {
-            console.error('Error de conexión a la base de datos:', err);
-            return res.status(500).send('Error interno del servidor');
-        }
+  function redirectUpdatePlant (req, res){
+    readOnlyPlant(req, res);
+
+}
+
+async function readOnlyPlant(req, res) {
+    try {
+        const conn = await new Promise((resolve, reject) => {
+            req.getConnection((err, connection) => {
+                if (err) {
+                    console.error('Error de conexión a la base de datos:', err);
+                    reject(err);
+                } else {
+                    resolve(connection);
+                }
+            });
+        });
 
         const readPlantQuery = `
             SELECT 
@@ -153,24 +158,32 @@ function deletePlant(req, res) {
             WHERE
                 Cultivo.idCultivo = ?`;
 
-        const idCultivo = req.params.id; 
+        const idCultivo = req.params.id;
 
-        try {
+        const results = await new Promise((resolve, reject) => {
             conn.query(readPlantQuery, [idCultivo], (err, results) => {
                 if (err) {
                     console.error('Error en la consulta a la base de datos:', err);
-                    return res.status(500).send('Error interno del servidor');
+                    reject(err);
+                } else {
+                    resolve(results);
                 }
-
-                // Renderizar la plantilla con los datos obtenidos
-                res.render('admin/UpdatePlantas', { plantData: results[0] , name: req.session.name, admin: req.session.admin});
             });
-        } catch (error) {
-            console.error('Error en la ejecución de la consulta:', error);
-            res.status(500).send('Error interno del servidor');
+        });
+        if (results && results.length > 0) {
+            // Renderizar la plantilla con los datos obtenidos
+            res.render('admin/UpdatePlantas', { plantData: results[0], name: req.session.name, admin: req.session.admin });
+        } else {
+            // No se encontraron resultados, puedes manejarlo de alguna manera, por ejemplo, redirigir a una página de error.
+            res.status(404).send('No se encontraron datos para el ID proporcionado.');
         }
-    });
+
+    } catch (error) {
+        console.error('Error en la ejecución de la consulta:', error);
+        res.status(500).send('Error interno del servidor');
+    }
 }
+
 
 
   

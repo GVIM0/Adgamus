@@ -4,6 +4,8 @@ const myconnection = require("express-myconnection");
 const mysql = require("mysql2");
 const session = require("express-session");
 const bodyParser = require("body-parser");
+const handlebars = require('handlebars');
+
 
 const loginRoutes = require("./routes/login");
 const adminRoutes = require("./routes/admin");
@@ -39,7 +41,7 @@ const dbConfig = {
   host: "localhost",
   user: "root",
   password: "n0m3l0",
-  port: "3308",
+  port: "3306",
   database: "Adgamus",
 };
 
@@ -91,4 +93,9 @@ app.get("/", (req, res) => {
   } else {
     res.redirect("login");
   }
+});
+
+//Helpers
+handlebars.registerHelper('eq', function (expected, actual) {
+  return expected === actual;
 });

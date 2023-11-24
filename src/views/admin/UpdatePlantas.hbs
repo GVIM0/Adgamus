@@ -206,11 +206,35 @@
 
     </div>
   </form>
-  </div>    
-  <script>
-    const handlebars = require('handlebars');
+  </div>
+  
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    {{#if plantData}}
+    const plantData = {{plantData}};
+    
+    for (const prop in plantData) {
+      if (plantData.hasOwnProperty(prop)) {
+        const element = document.getElementById(prop);
+        if (element) {
+          element.value = plantData[prop];
+        }
+      }
+    }
+    {{/if}}
+        console.log(plantData);
 
-    handlebars.registerHelper('eq', function (expected, actual) {
-    return expected === actual;
+    console.log(document.getElementById("especie").value);
+
+    // Bootstrap validation
+    const form = document.querySelector('.needs-validation');
+    form.addEventListener('submit', event => {
+      if (!form.checkValidity()) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+      form.classList.add('was-validated');
     });
-  </script>
+  });
+</script>
+
