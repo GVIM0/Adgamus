@@ -203,16 +203,6 @@
                 });
             });
         </script>
-        {{else}}
-        <script>
-            document.addEventListener('DOMContentLoaded', function () {
-                Swal.fire({
-                    title: 'Éxito',
-                    text: 'El registro se ha realizado correctamente.',
-                    icon: 'success'
-                });
-            });
-        </script>
         {{/if}}
     </div>
 
@@ -271,7 +261,7 @@
               editButton.textContent = 'Editar';
               editButton.classList.add('btn', 'btn-info');
               editButton.addEventListener('click', () => {
-                window.location.href = `/redirectUpdatePlant/${row.idCultivo}`;
+                window.location.href = `/UpdatePlant/${row.idCultivo}`;
               });
               actionsCell.appendChild(editButton);
 

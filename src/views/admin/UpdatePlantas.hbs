@@ -1,3 +1,216 @@
-<p>
-    Uodate plantas
-</p>
+<style>
+  * {
+    box-sizing: border-box;
+    font-family: 'Source Sans 3', sans-serif;
+    text-decoration: none;
+  }
+
+  body {
+    overflow-y: auto;
+    padding-top: 50px;
+    background: none;
+  }
+</style>
+<div class="container-sm">
+  <form action="" method="POST" class="needs-validation" novalidate>
+
+    <div class="card text-center">
+
+      <div class="card-header">
+        GESTIÓN DE PLANTAS
+      </div>
+
+      <div class="card-body">
+        <div class="row">
+
+          <div class="col-sm-6">
+            <div class="card">
+              <div class="card-body">
+
+                 <div class="input-group mb-3">
+                    <label class="input-group-text" for="tipo">Tipo</label>
+                    <select class="form-select" id="tipo" name="tipo" required>
+                        <option selected disabled value="">Selecciona una opción</option>
+                        <option value="1" {{#if (eq plantData.Tipo "1")}}selected{{/if}}>One</option>
+                        <option value="2" {{#if (eq plantData.Tipo "2")}}selected{{/if}}>Two</option>
+                        <option value="3" {{#if (eq plantData.Tipo "3")}}selected{{/if}}>Three</option>
+                    </select>
+                    <div class="invalid-feedback">
+                        Por favor, selecciona un tipo.
+                    </div>
+                 </div>
+
+               <div class="input-group mb-3">
+                    <label class="input-group-text" for="regionGeografica">Región Geográfica</label>
+                    <select class="form-select" id="regionGeografica" name="regionGeografica" required>
+                        <option selected disabled value="">Selecciona una opción</option>
+                        <option value="1" {{#if (eq plantData.RegionGeografica "1")}}selected{{/if}}>One</option>
+                        <option value="2" {{#if (eq plantData.RegionGeografica "2")}}selected{{/if}}>Two</option>
+                        <option value="3" {{#if (eq plantData.RegionGeografica "3")}}selected{{/if}}>Three</option>
+                    </select>
+                    <div class="invalid-feedback">
+                        Por favor, selecciona una región geográfica.
+                    </div>
+                </div>
+                                
+                <div class="input-group mb-3">
+                <label class="input-group-text" for="foto">Subir</label>
+                <input type="file" class="form-control" id="foto" name="foto" />
+                </div>
+
+                <div class="input-group mb-3">
+                <span class="input-group-text">Rasgos Específicos</span>
+                <textarea class="form-control" aria-label="rasgosEspecificos" name="rasgosEspecificos" required>{{plantData.Rasgos_Especificos}}</textarea>
+                <div class="invalid-feedback">
+                    Por favor, proporciona rasgos específicos.
+                </div>
+                </div>
+
+                <div class="input-group mb-3">
+                <span class="input-group-text">Información de cuidado</span>
+                <textarea class="form-control" aria-label="informacionCuidado" name="informacionCuidado" required>{{plantData.Informacion_Cuidado}}</textarea>
+                <div class="invalid-feedback">
+                    Por favor, proporciona información de cuidado.
+                </div>
+                </div>
+
+                <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Nombre Común</span>
+                <input type="text" class="form-control" name="nombreComun" placeholder="Nombre Común" aria-label="nombreComun" aria-describedby="nombreComun" required value="{{plantData.Nombre_Comun}}">
+                <div class="invalid-feedback">
+                    Por favor, proporciona un nombre común.
+                </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-6">
+            <div class="card">
+              <div class="card-body">
+
+               <div class="input-group mb-3">
+                <label class="input-group-text" for="reino">Reino</label>
+                <select class="form-select" id="reino" name="reino" required>
+                    <option selected disabled value="">Selecciona una opción</option>
+                    <option {{#if (eq plantData.Reino "EjemploReino One")}}selected{{/if}}>EjemploReino One</option>
+                    <option {{#if (eq plantData.Reino "EjemploReino Two")}}selected{{/if}}>EjemploReino Two</option>
+                    <option {{#if (eq plantData.Reino "EjemploReino Three")}}selected{{/if}}>EjemploReino Three</option>
+                </select>
+                <div class="invalid-feedback">
+                    Por favor, selecciona un reino.
+                </div>
+                </div>
+
+                <div class="input-group mb-3">
+                <label class="input-group-text" for="filo">Filo</label>
+                <select class="form-select" id="filo" name="filo" required>
+                    <option selected disabled value="">Selecciona una opción</option>
+                    <option {{#if (eq plantData.Filo "EjemploFilo One")}}selected{{/if}}>EjemploFilo One</option>
+                    <option {{#if (eq plantData.Filo "EjemploFilo Two")}}selected{{/if}}>EjemploFilo Two</option>
+                    <option {{#if (eq plantData.Filo "EjemploFilo Three")}}selected{{/if}}>EjemploFilo Three</option>
+                </select>
+                <div class="invalid-feedback">
+                    Por favor, selecciona un filo.
+                </div>
+                </div>
+
+                <div class="input-group mb-3">
+                <label class="input-group-text" for="clase">Clase</label>
+                <select class="form-select" id="clase" name="clase" required>
+                    <option selected disabled value="">Selecciona una opción</option>
+                    <option {{#if (eq plantData.Clase "EjemploClase One")}}selected{{/if}}>EjemploClase One</option>
+                    <option {{#if (eq plantData.Clase "EjemploClase Two")}}selected{{/if}}>EjemploClase Two</option>
+                    <option {{#if (eq plantData.Clase "EjemploClase Three")}}selected{{/if}}>EjemploClase Three</option>
+                </select>
+                <div class="invalid-feedback">
+                    Por favor, selecciona una clase.
+                </div>
+                </div>
+
+                <div class="input-group mb-3">
+                <label class="input-group-text" for="orden">Orden</label>
+                <select class="form-select" id="orden" name="orden" required>
+                    <option selected disabled value="">Selecciona una opción</option>
+                    <option {{#if (eq plantData.Orden "EjemploOrden One")}}selected{{/if}}>EjemploOrden One</option>
+                    <option {{#if (eq plantData.Orden "EjemploOrden Two")}}selected{{/if}}>EjemploOrden Two</option>
+                    <option {{#if (eq plantData.Orden "EjemploOrden Three")}}selected{{/if}}>EjemploOrden Three</option>
+                </select>
+                <div class="invalid-feedback">
+                    Por favor, selecciona un orden.
+                </div>
+                </div>
+
+                <div class="input-group mb-3">
+                <label class="input-group-text" for="familia">Familia</label>
+                <select class="form-select" id="familia" name="familia" required>
+                    <option selected disabled value="">Selecciona una opción</option>
+                    <option {{#if (eq plantData.Familia "EjemploFamilia One")}}selected{{/if}}>EjemploFamilia One</option>
+                    <option {{#if (eq plantData.Familia "EjemploFamilia Two")}}selected{{/if}}>EjemploFamilia Two</option>
+                    <option {{#if (eq plantData.Familia "EjemploFamilia Three")}}selected{{/if}}>EjemploFamilia Three</option>
+                </select>
+                <div class="invalid-feedback">
+                    Por favor, selecciona una familia.
+                </div>
+                </div>
+
+                <div class="input-group mb-3">
+                <label class="input-group-text" for="genero">Género</label>
+                <select class="form-select" id="genero" name="genero" required>
+                    <option selected disabled value="">Selecciona una opción</option>
+                    <option {{#if (eq plantData.Genero "EjemploGénero One")}}selected{{/if}}>EjemploGénero One</option>
+                    <option {{#if (eq plantData.Genero "EjemploGénero Two")}}selected{{/if}}>EjemploGénero Two</option>
+                    <option {{#if (eq plantData.Genero "EjemploGénero Three")}}selected{{/if}}>EjemploGénero Three</option>
+                </select>
+                <div class="invalid-feedback">
+                    Por favor, selecciona un género.
+                </div>
+                </div>
+
+                <div class="input-group mb-3">
+                <label class="input-group-text" for="especie">Especie</label>
+                <select class="form-select" id="especie" name="especie" required>
+                    <option selected disabled value="">Selecciona una opción</option>
+                    <option {{#if (eq plantData.Especie "EjemploEspecie One")}}selected{{/if}}>EjemploEspecie One</option>
+                    <option {{#if (eq plantData.Especie "EjemploEspecie Two")}}selected{{/if}}>EjemploEspecie Two</option>
+                    <option {{#if (eq plantData.Especie "EjemploEspecie Three")}}selected{{/if}}>EjemploEspecie Three</option>
+                </select>
+                <div class="invalid-feedback">
+                    Por favor, selecciona una especie.
+                </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="card-footer text-muted">
+        <button type="submit" class="btn btn-success">Confirmar</button>
+        {{#if error}}
+        <p class="text-red-500 font-bold text-lg my-3">*{{error}}</p>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                Swal.fire({
+                    title: 'Error',
+                    text: 'Ha ocurrido algún error.',
+                    icon: 'error'
+                });
+            });
+        </script>
+        {{/if}}
+    </div>
+
+    </div>
+  </form>
+  </div>    
+  <script>
+    const handlebars = require('handlebars');
+
+    handlebars.registerHelper('eq', function (expected, actual) {
+    return expected === actual;
+    });
+  </script>

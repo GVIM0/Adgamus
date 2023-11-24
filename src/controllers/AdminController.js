@@ -127,6 +127,52 @@ function deletePlant(req, res) {
     }
     });
   }
+
+  function readOnlyPlant(req, res) {
+    req.getConnection((err, conn) => {
+        if (err) {
+            console.error('Error de conexión a la base de datos:', err);
+            return res.status(500).send('Error interno del servidor');
+        }
+
+        const readPlantQuery = `
+            SELECT 
+                Cultivo.idCultivo, Cultivo.Tipo, Cultivo.RegionGeografica, Cultivo.Foto,
+                Cultivo.Nombre_Comun, Cultivo.Nombre_Especie, Cultivo.Nombre_Genero,
+                Cultivo.Rasgos_Especificos, Cultivo.Informacion_Cuidado,
+                Catalogo_Taxonomia_C.idCatalogo_Taxonomia, Catalogo_Taxonomia_C.Reino,
+                Catalogo_Taxonomia_C.Filo, Catalogo_Taxonomia_C.Clase,
+                Catalogo_Taxonomia_C.Orden, Catalogo_Taxonomia_C.Familia,
+                Catalogo_Taxonomia_C.Genero, Catalogo_Taxonomia_C.Especie
+            FROM 
+                Cultivo
+            INNER JOIN 
+                Catalogo_Taxonomia_C 
+            ON 
+                Cultivo.Catalogo_Taxonomia_idCatalogo_Taxonomia = Catalogo_Taxonomia_C.idCatalogo_Taxonomia
+            WHERE
+                Cultivo.idCultivo = ?`;
+
+        const idCultivo = req.params.id; 
+
+        try {
+            conn.query(readPlantQuery, [idCultivo], (err, results) => {
+                if (err) {
+                    console.error('Error en la consulta a la base de datos:', err);
+                    return res.status(500).send('Error interno del servidor');
+                }
+
+                // Renderizar la plantilla con los datos obtenidos
+                res.render('admin/UpdatePlantas', { plantData: results[0] , name: req.session.name, admin: req.session.admin});
+            });
+        } catch (error) {
+            console.error('Error en la ejecución de la consulta:', error);
+            res.status(500).send('Error interno del servidor');
+        }
+    });
+}
+
+
   
 
 module.exports = {
@@ -135,4 +181,5 @@ module.exports = {
     readPlants,
     redirectUpdatePlant,  
     deletePlant,
+    readOnlyPlant, 
 }
