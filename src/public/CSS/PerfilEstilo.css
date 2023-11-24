@@ -1,0 +1,17 @@
+.large-rounded-img {
+    border-radius: 100%;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(./../IMG/AdgamusLogo1.png);
+
+}
+
+.large-rounded-img img[src$="AdgamusLogo1.png"] {
+    /* Estilos para imágenes con src que termina en "AdgamusLogo1.png" dentro de elementos con clase .large-rounded-img */
+    width: 50%;
+    height: 15%;
+}
+

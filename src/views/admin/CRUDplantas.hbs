@@ -1,0 +1,293 @@
+<style>
+  * {
+    box-sizing: border-box;
+    font-family: 'Source Sans 3', sans-serif;
+    text-decoration: none;
+  }
+
+  body {
+    overflow-y: auto;
+    padding-top: 50px;
+    background: none;
+  }
+</style>
+
+<div class="container-sm">
+  <form action="" method="POST" class="needs-validation" novalidate>
+
+    <div class="card text-center">
+
+      <div class="card-header">
+        GESTIÓN DE PLANTAS
+      </div>
+
+      <div class="card-body">
+        <div class="row">
+
+          <div class="col-sm-6">
+            <div class="card">
+              <div class="card-body">
+
+                <div class="input-group mb-3">
+                  <label class="input-group-text" for="tipo">Tipo</label>
+                  <select class="form-select" id="tipo" name="tipo" required>
+                    <option selected disabled value="">Selecciona una opción</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </select>
+                  <div class="invalid-feedback">
+                    Por favor, selecciona un tipo.
+                  </div>
+                </div>
+
+                <div class="input-group mb-3">
+                  <label class="input-group-text" for="regionGeografica">Región Geográfica</label>
+                  <select class="form-select" id="regionGeografica" name="regionGeografica" required>
+                    <option selected disabled value="">Selecciona una opción</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </select>
+                  <div class="invalid-feedback">
+                    Por favor, selecciona una región geográfica.
+                  </div>
+                </div>
+
+                <div class="input-group mb-3">
+                  <input type="file" class="form-control" id="foto" name="foto" />
+                  <label class="input-group-text" for="foto">Subir</label>
+                </div>
+
+                <div class="input-group mb-3">
+                    <span class="input-group-text">Rasgos Específicos</span>
+                    <textarea class="form-control" aria-label="rasgosEspecificos" name="rasgosEspecificos" required></textarea>
+                  <div class="invalid-feedback">
+                    Por favor, proporciona rasgos específicos.
+                  </div>
+                </div>
+
+                <div class="input-group mb-3">
+                  <span class="input-group-text">Información de cuidado</span>
+                    <textarea class="form-control" aria-label="informacionCuidado" name="informacionCuidado" required></textarea>
+                  <div class="invalid-feedback">
+                    Por favor, proporciona información de cuidado.
+                  </div>
+                </div>
+
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1">Nombre Común</span>
+                  <input type="text" class="form-control" name="nombreComun" placeholder="Nombre Común"
+                    aria-label="nombreComun" aria-describedby="nombreComun" required>
+                  <div class="invalid-feedback">
+                    Por favor, proporciona un nombre común.
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-6">
+            <div class="card">
+              <div class="card-body">
+
+                <div class="input-group mb-3">
+                  <label class="input-group-text" for="reino">Reino</label>
+                  <select class="form-select" id="reino" name="reino" required>
+                    <option selected disabled value="">Selecciona una opción</option>
+                    <option>EjemploReino One</option>
+                    <option>EjemploReino Two</option>
+                    <option>EjemploReino Three</option>
+                  </select>
+                  <div class="invalid-feedback">
+                    Por favor, selecciona un reino.
+                  </div>
+                </div>
+
+                <div class="input-group mb-3">
+                  <label class="input-group-text" for="filo">Filo</label>
+                  <select class="form-select" id="filo" name="filo" required>
+                    <option selected disabled value="">Selecciona una opción</option>
+                    <option>EjemploFilo One</option>
+                    <option>EjemploFilo Two</option>
+                    <option>EjemploFilo Three</option>
+                  </select>
+                  <div class="invalid-feedback">
+                    Por favor, selecciona un filo.
+                  </div>
+                </div>
+
+                <div class="input-group mb-3">
+                  <label class="input-group-text" for="clase">Clase</label>
+                  <select class="form-select" id="clase" name="clase" required>
+                    <option selected disabled value="">Selecciona una opción</option>
+                    <option>EjemploClase One</option>
+                    <option>EjemploClase Two</option>
+                    <option>EjemploClase Three</option>
+                  </select>
+                  <div class="invalid-feedback">
+                    Por favor, selecciona una clase.
+                  </div>
+                </div>
+
+                <div class="input-group mb-3">
+                  <label class="input-group-text" for="orden">Orden</label>
+                  <select class="form-select" id="orden" name="orden" required>
+                    <option selected disabled value="">Selecciona una opción</option>
+                    <option>EjemploOrden One</option>
+                    <option>EjemploOrden Two</option>
+                    <option>EjemploOrden Three</option>
+                  </select>
+                  <div class="invalid-feedback">
+                    Por favor, selecciona un orden.
+                  </div>
+                </div>
+
+                <div class="input-group mb-3">
+                  <label class="input-group-text" for="familia">Familia</label>
+                  <select class="form-select" id="familia" name="familia" required>
+                    <option selected disabled value="">Selecciona una opción</option>
+                    <option>EjemploFamilia One</option>
+                    <option>EjemploFamilia Two</option>
+                    <option>EjemploFamilia Three</option>
+                  </select>
+                  <div class="invalid-feedback">
+                    Por favor, selecciona una familia.
+                  </div>
+                </div>
+
+                <div class="input-group mb-3">
+                  <label class="input-group-text" for="genero">Género</label>
+                  <select class="form-select" id="genero" name="genero" required>
+                    <option selected disabled value="">Selecciona una opción</option>
+                    <option>EjemploGénero One</option>
+                    <option>EjemploGénero Two</option>
+                    <option>EjemploGénero Three</option>
+                  </select>
+                  <div class="invalid-feedback">
+                    Por favor, selecciona un género.
+                  </div>
+                </div>
+
+                <div class="input-group mb-3">
+                  <label class="input-group-text" for="especie">Especie</label>
+                  <select class="form-select" id="especie" name="especie" required>
+                    <option selected disabled value="">Selecciona una opción</option>
+                    <option>EjemploEspecie One</option>
+                    <option>EjemploEspecie Two</option>
+                    <option>EjemploEspecie Three</option>
+                  </select>
+                  <div class="invalid-feedback">
+                    Por favor, selecciona una especie.
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="card-footer text-muted">
+        <button type="submit" class="btn btn-success">Enviar</button>
+        {{#if error}}
+        <p class="text-red-500 font-bold text-lg my-3">*{{error}}</p>
+        {{/if}}
+      </div>
+
+    </div>
+  </form>
+
+  <table class="table table-striped" id="cultivosTable">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nombre Común</th>
+      <th scope="col">Género</th>
+      <th scope="col">Especie</th>
+      <th scope="col">Tipo</th>
+      <th scope="col">Región Geográfica</th>
+      <th scope="col"># Taxonomía</th>
+      <th scope="col">Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+</div>
+
+<script>
+  // Example starter JavaScript for disabling form submissions if there are invalid fields
+  (function () {
+    'use strict'
+
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    var forms = document.querySelectorAll('.needs-validation')
+
+    // Loop over them and prevent submission
+    Array.prototype.slice.call(forms)
+      .forEach(function (form) {
+        form.addEventListener('submit', function (event) {
+          if (!form.checkValidity()) {
+            event.preventDefault()
+            event.stopPropagation()
+          }
+
+          form.classList.add('was-validated')
+        }, false)
+      })
+  })()
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // Hacer una solicitud al servidor para obtener los datos de la base de datos
+  fetch('/readPlant')
+    .then(response => response.json())
+    .then(data => {
+      // Obtener la tabla
+      const table = document.getElementById('cultivosTable').getElementsByTagName('tbody')[0];
+
+      // Iterar sobre los datos y agregar filas a la tabla
+      data.forEach(row => {
+        const newRow = table.insertRow(table.rows.length);
+
+        // Iterar sobre los valores y agregar celdas a la fila
+        Object.values(row).forEach((value, index) => {
+          const cell = newRow.insertCell();
+
+          // Agregar texto a la celda
+          cell.appendChild(document.createTextNode(value));
+
+          // Agregar botones solo en la última columna (Acciones)
+          if (index === Object.values(row).length - 1) {
+            const actionsCell = newRow.insertCell();
+
+            const editButton = document.createElement('button');
+            editButton.textContent = 'Editar';
+            editButton.classList.add('btn', 'btn-info');
+            editButton.addEventListener('click', () => {
+              // Lógica para editar el registro
+              window.location.href = `/redirectUpdatePlant/${row.idCultivo}`;
+            });
+            actionsCell.appendChild(editButton);
+
+            const deleteButton = document.createElement('button');
+            deleteButton.textContent = 'Eliminar';
+            deleteButton.classList.add('btn', 'btn-danger');
+            deleteButton.addEventListener('click', () => {
+              // Lógica para eliminar el registro
+              if (confirm('¿Estás seguro de que deseas eliminar este registro?')) {
+                window.location.href = `/deletePlant/${row.idCultivo}`;
+              }
+            });
+            actionsCell.appendChild(deleteButton);
+          }
+        });
+      });
+    })
+    .catch(error => console.error('Error al obtener datos del servidor: ', error));
+}); 
+</script> 
+ 
