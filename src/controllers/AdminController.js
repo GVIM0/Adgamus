@@ -191,10 +191,10 @@ function updatePlant(req, res) {
 
     const updateCatalogoQuery = 'UPDATE Catalogo_Taxonomia_C SET Reino = ?, Filo = ?, Clase = ?, Orden = ?, Familia = ?, Genero = ?, Especie = ? WHERE idCatalogo_Taxonomia = ?';
 
-    const updateCultivoQuery = 'UPDATE Cultivo SET Tipo = ?, RegionGeografica = ?, Foto = ?, Rasgos_Especificos = ?, Informacion_Cuidado = ?, Nombre_Comun = ? WHERE idCultivo = ? AND Catalogo_Taxonomia_idCatalogo_Taxonomia = ?';
+    const updateCultivoQuery = 'UPDATE Cultivo SET Tipo = ?, RegionGeografica = ?, Foto = ?, Rasgos_Especificos = ?, Informacion_Cuidado = ?, Nombre_Comun = ?, Nombre_Especie = ?, Nombre_Genero = ? WHERE idCultivo = ? AND Catalogo_Taxonomia_idCatalogo_Taxonomia = ?';
 
     const catalogoValues = [Reino, Filo, Clase, Orden, Familia, Genero, Especie, Catalogo_Taxonomia_idCatalogo_Taxonomia];
-    const cultivoValues = [Tipo, RegionGeografica, Foto, Rasgos_Especificos, Informacion_Cuidado, Nombre_Comun, idCultivo, Catalogo_Taxonomia_idCatalogo_Taxonomia];
+    const cultivoValues = [Tipo, RegionGeografica, Foto, Rasgos_Especificos, Informacion_Cuidado, Nombre_Comun, Especie, Genero, idCultivo, Catalogo_Taxonomia_idCatalogo_Taxonomia];
 
     req.getConnection((err, connection) => {
         if (err) {
