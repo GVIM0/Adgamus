@@ -1,17 +1,158 @@
-.large-rounded-img {
-    border-radius: 100%;
-    width: 200px;
-    height: 200px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-image: url(./../IMG/AdgamusLogo1.png);
 
+body{margin-top:50px;}
+
+.profile {
+  width: 150%;
+  height: 300%;
+  position: relative;
+  background: #FFF;
+  border: 1px solid #D5D5D5;
+  padding-bottom: 0px;
+  margin-bottom: 0px;
 }
 
-.large-rounded-img img[src$="AdgamusLogo1.png"] {
-    /* Estilos para imágenes con src que termina en "AdgamusLogo1.png" dentro de elementos con clase .large-rounded-img */
-    width: 50%;
-    height: 15%;
+.profile .image {
+  display: block;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  text-align: center;
+  border: 5px solid #FFF;
 }
 
+.profile .user {
+  position: relative;
+  padding: 0px 5px 5px;
+}
+
+.profile .user .avatar {
+  position: absolute;
+  left: 20px;
+  top: -85px;
+  z-index: 2;
+}
+
+.profile .user h2 {
+  font-size: 16px;
+  line-height: 20px;
+  display: block;
+  float: left;
+  margin: 4px 0px 0px 135px;
+  margin-left: 20px;
+  font-weight: bold;
+}
+
+.profile .user .actions {
+  float: right;
+}
+
+.profile .user .actions .btn{
+  margin-bottom: 0px;
+  margin-right: 10px;
+  float: right;
+}
+
+.publicacion h2{
+    font-size: 16px;
+    line-height: 20px;
+    display: block;
+    float: left;
+    margin: 4px 10px 0px 135px;
+    margin-left: 20px;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.profile .info {
+  float: left;
+  margin-left: 20px;
+}
+
+.img-profile{
+    height:150px;
+    width:150px;
+}
+
+.img-cover{
+    width:130%;
+    height:300px;
+}
+
+@media (max-width: 768px) {
+    .btn-responsive {
+      padding:2px 4px;
+      font-size:80%;
+      line-height: 1;
+      border-radius:3px;
+    }
+  }
+  
+  @media (min-width: 769px) and (max-width: 992px) {
+    .btn-responsive {
+      padding:4px 9px;
+      font-size:90%;
+      line-height: 1.2;
+    }
+  }
+
+  .publication{
+    width: 95%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+  }
+
+  .btnPublicar{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    }
+
+  .publicacion{
+    width: 93%;
+    height: 300%;
+    position: relative;
+    background: #FFF;
+    border: 1px solid #D5D5D5;
+    padding-bottom: 15px;
+    margin-top: 0px;
+    margin-bottom: 20px;
+  }
+
+  .EditModal {
+    margin-top: 30px;
+    width: 90%;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.botonCerrar{
+    background-image: url('/public/IMG/tache.png');
+    background-size: cover; /* O 'contain' dependiendo de lo que necesites */
+    width: 20px;  /* Ancho del botón */
+    height: 20px;  /* Altura del botón */
+    margin-right: 10px;
+    margin-top: 10px;
+    border: none;
+    display: block;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    text-align: center;
+    float: right;
+}
+
+.EditModal h2{
+    font-size: 16px;
+    line-height: 20px;
+    display: block;
+    float: left;
+    margin: 4px 10px 0px 135px;
+    margin-left: 20px;
+    margin-top: 10px;
+    font-weight: bold;
+    padding-bottom: 10px;
+}

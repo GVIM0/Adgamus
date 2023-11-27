@@ -1,9 +1,77 @@
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
 <link rel="stylesheet" type="text/css" href="/public/CSS/PerfilEstilo.css">
-<img src="" name="FotoUsuario" class="large-rounded-img" >
+<div class="container">
+<div class="col-md-8">
+    <div class="profile clearfix">                            
+        <div class="image">
+            <img src="/public/IMG/banner.jpg" class="img-cover">
+        </div>                            
+        <div class="user clearfix">
+            <div class="avatar">
+                <img src="/public/IMG/AdgamusLogo1.png" class="img-thumbnail img-profile">
+            </div> 
+            <br><br><br>                               
+            <h2>{{name}}</h2>
+            <div class="actions">
+                <div class="btn-group">
+                    <button class="btn btn-default btn-sm tip btn-responsive" title="" data-original-title="Add to friends"><span class="glyphicon glyphicon-plus glyphicon glyphicon-white"></span> Amigos</button>
+                    <button class="btn btn-default btn-sm tip btn-responsive" title="" data-original-title="Send message"><span class="glyphicon glyphicon-envelope glyphicon glyphicon-white"></span> Mensajes</button>
+                    <button class="btn btn-default btn-sm tip btn-responsive" id="btnEditar" data-original-title="Recommend"><span class="glyphicon glyphicon-share-alt glyphicon glyphicon-white"></span> Editar</button>
+                </div>
+        </div>                                                                                                                                
+        </div>                              
+        <div class="info">
+            <p><span class="glyphicon glyphicon-globe"></span> <span class="title"></span></p>                                    
+            <p><span class="glyphicon glyphicon-gift"></span> <span class="title"></span></p>                                
+        </div>                              
+    </div>
+</div>
+</div>
+
+<div class="publicacion">
+    <h2>¿Qué estas pensando?</h2>
+    <form action="" method="POST">
+        <br><br>
+        <textarea class="form-control publication" aria-label="informacionPublicacion" name="informacionPublicacion" required></textarea>
+        <button type="submit" class="btn btn-success btnPublicar">Publicar</button>
+    </form>
+</div>
+
+<dialog id="modal" class="EditModal">
+    <button id="btnCerrarModal" class="botonCerrar"></button>
+    <form action="" method="POST">
+        <br><br>
+        <h2>Usuario</h2>
+        <input type="text" class="form-control publication" name="usuario"
+                    aria-label="usuario" aria-describedby="usuario" value="{{name}}">
+        <h2>Foto de Perfil</h2>
+        <input type="file" class="form-control publication" id="fotoPerfil" name="fotoPerfil" />
+        <h2>Nombres</h2>
+        <input type="text" class="form-control publication" name="nombres"
+                    aria-label="nombres" aria-describedby="nombres" required>
+        <h2>Apellido Paterno</h2>
+        <input type="text" class="form-control publication" name="apellidoA"
+                    aria-label="apellidoA" aria-describedby="apellidoA" required>
+        <h2>Apellido Materno</h2>
+        <input type="text" class="form-control publication" name="apelldoP"
+                    aria-label="apelldoP" aria-describedby="apelldoP" required>
+        <h2>Descripción</h2>
+        <textarea class="form-control publication" aria-label="descripcion" name="descripcion"></textarea>
+        <button type="submit" class="btn btn-success btnPublicar">Guardar</button>
+    </form>
+</dialog>
+
+<script>
+    const btnEditar = document.querySelector('#btnEditar');
+    const btnCerrarModal = document.querySelector('#btnCerrarModal');
+    const modal = document.querySelector('#modal');
+
+    btnEditar.addEventListener("click",()=>{
+        modal.showModal();
+    });
+
+    btnCerrarModal.addEventListener("click",()=>{
+        modal.close();
+    });
+
+</script>
+
