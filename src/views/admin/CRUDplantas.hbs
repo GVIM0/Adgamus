@@ -241,7 +241,7 @@
     });
 
     // Fetch data and populate table
-    fetch('/readPlant')
+    fetch('/Adgamus/readPlant')
       .then(response => response.json())
       .then(data => {
         const table = document.getElementById('cultivosTable').getElementsByTagName('tbody')[0];
@@ -260,7 +260,7 @@
               editButton.textContent = 'Editar';
               editButton.classList.add('btn', 'btn-info');
               editButton.addEventListener('click', () => {
-                window.location.href = `/UpdatePlant/${row.idCultivo}`;
+                window.location.href = `/Adgamus/UpdatePlant/${row.idCultivo}`;
               });
               actionsCell.appendChild(editButton);
 
@@ -281,7 +281,7 @@
                 });
 
                 if (confirmDelete) {
-                  const response = await fetch(`/deletePlant/${row.idCultivo}`, {
+                  const response = await fetch(`/Adgamus/deletePlant/${row.idCultivo}`, {
                     method: 'DELETE',
                   });
 
