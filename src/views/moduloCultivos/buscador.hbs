@@ -1,41 +1,299 @@
 <style>
+    * {
+        box-sizing: border-box;
+        font-family: 'Source Sans 3', sans-serif;
+        text-decoration: none;
+    }
+
     body {
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
-}
+        overflow-y: auto;
+        padding-top: 45px;
+    }
 
-.container {
-  margin-top: 50px;
-}
-
-h1, h2 {
-  color: #006400;
-}
-
-p {
-  color: #333;
-}
-
+    .container-sm {
+        width: 70%;
+    }
 </style>
+<div class="container-sm">
+    <div class="card text-center">
+        <div class="card-header">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <form action="/BuscarPlanta" method="GET">
+                        <div class="input-group">
+                            <input type="text" name="especie" class="form-control" placeholder="Buscar plantas (especie)">
+                            <div class="input-group-append">
+                                <button type="submit" class="btn btn-success btn-block">Buscar</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
 
-<h1 class="mt-5">Plant Search</h1>
+                <div class="col-md-2">
+                    <button type="button" class="btn btn-info btn-block">
+                        <i class="fas fa-history"></i> Historial
+                    </button>
+                </div>
 
-<form action="/search" method="GET" class="mb-4">
-  <div class="input-group">
-    <input type="text" name="q" class="form-control" placeholder="Buscar plantas">
-    <div class="input-group-append">
-      <button type="submit" class="btn btn-success">Buscar</button>
-    </div>
-  </div>
-</form>
+                <div class="col-md-2">
+                    <button type="button" class="btn btn-primary btn-block" id="btnBusquedaAvanzada">
+                        <i class="fas fa-cogs"></i> Avanzada
+                    </button>
+                </div>
 
-{{#if results.length}}
-  <h2>Resultados para "{{searchTerm}}":</h2>
-  <ul class="list-group">
-    {{#each results}}
-      <li class="list-group-item">{{name}}</li>
-    {{/each}}
-  </ul>
-{{else}}
-  <p class="mt-3">No se encontraron resultados.</p>
-{{/if}}
+                <div class="col-md-2">
+                    <a href="/nuevo-post" class="btn btn-success btn-block">
+                        <i class="fas fa-plus"></i> Agregar Post
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Formulario para búsqueda avanzada (inicialmente oculto) -->
+        <div id="busquedaAvanzadaForm" class="card-body" style="display: none;">
+            <h5 class="card-title">Búsqueda Avanzada</h5>
+
+            <form action="/BusquedaAvanzada" method="GET">
+                <div class="card-body">
+                    <div class="row">
+
+                        <div class="col-sm-6">
+                            <div class="card">
+                                <div class="card-body">
+
+                                    <div class="input-group mb-3">
+                                        <label class="input-group-text" for="tipo">Tipo</label>
+                                        <select class="form-select" id="tipo" name="tipo">
+                                            <option selected disabled value="">Selecciona una opción</option>
+                                            <option value="1">One</option>
+                                            <option value="2">Two</option>
+                                            <option value="3">Three</option>
+                                            <option>Culinario </option>
+                                            <option>Ornamental</option>
+                                        </select>
+                                        <div class="invalid-feedback">
+                                            Por favor, selecciona un tipo.
+                                        </div>
+                                    </div>
+
+                                    <div class="input-group mb-3">
+                                        <label class="input-group-text" for="regionGeografica">Región Geográfica</label>
+                                        <select class="form-select" id="regionGeografica" name="regionGeografica">
+                                            <option selected disabled value="">Selecciona una opción</option>
+                                            <option value="1">One</option>
+                                            <option value="2">Two</option>
+                                            <option value="3">Three</option>
+                                            <option> Mexico</option>
+                                        </select>
+                                        <div class="invalid-feedback">
+                                            Por favor, selecciona una región geográfica.
+                                        </div>
+                                    </div>
+
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text" id="basic-addon1">Nombre Común</span>
+                                        <input type="text" class="form-control" name="nombreComun"
+                                            placeholder="Nombre Común" aria-label="nombreComun"
+                                            aria-describedby="nombreComun">
+                                        <div class="invalid-feedback">
+                                            Por favor, proporciona un nombre común.
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <div class="card">
+                                <div class="card-body">
+
+                                    <div class="input-group mb-3">
+                                        <label class="input-group-text" for="reino">Reino</label>
+                                        <select class="form-select" id="reino" name="reino">
+                                            <option selected disabled value="">Selecciona una opción</option>
+                                            <option>Plantae</option>
+                                            <option>EjemploReino One</option>
+                                            <option>EjemploReino Two</option>
+                                            <option>EjemploReino Three</option>
+                                        </select>
+                                        <div class="invalid-feedback">
+                                            Por favor, selecciona un reino.
+                                        </div>
+                                    </div>
+
+                                    <div class="input-group mb-3">
+                                        <label class="input-group-text" for="filo">Filo</label>
+                                        <select class="form-select" id="filo" name="filo">
+                                            <option selected disabled value="">Selecciona una opción</option>
+                                            <option>Gimnospermae</option>
+                                            <option>Angiospermae</option>
+                                            <option>EjemploFilo One</option>
+                                            <option>EjemploFilo Two</option>
+                                            <option>EjemploFilo Three</option>
+                                        </select>
+                                        <div class="invalid-feedback">
+                                            Por favor, selecciona un filo.
+                                        </div>
+                                    </div>
+
+                                    <div class="input-group mb-3">
+                                        <label class="input-group-text" for="clase">Clase</label>
+                                        <select class="form-select" id="clase" name="clase">
+                                            <option selected disabled value="">Selecciona una opción</option>
+                                            <option>Dicotyledoneae</option>
+                                            <option>Monocotyledoneae</option>
+                                            <option>Pinopsida</option>
+                                            <option>EjemploClase One</option>
+                                            <option>EjemploClase Two</option>
+                                            <option>EjemploClase Three</option>
+                                        </select>
+                                        <div class="invalid-feedback">
+                                            Por favor, selecciona una clase.
+                                        </div>
+                                    </div>
+
+                                    <div class="input-group mb-3">
+                                        <label class="input-group-text" for="orden">Orden</label>
+                                        <select class="form-select" id="orden" name="orden">
+                                            <option selected disabled value="">Selecciona una opción</option>
+                                            <option>Liliales</option>
+                                            <option>Asterales</option>
+                                            <option>Zingiberales</option>
+                                            <option>Rosales</option>
+                                            <option>Pinales</option>
+                                            <option>Asparagales</option>
+                                            <option>Lamiales</option>
+                                            <option>EjemploOrden One</option>
+                                            <option>EjemploOrden Two</option>
+                                            <option>EjemploOrden Three</option>
+                                        </select>
+                                        <div class="invalid-feedback">
+                                            Por favor, selecciona un orden.
+                                        </div>
+                                    </div>
+
+                                    <div class="input-group mb-3">
+                                        <label class="input-group-text" for="familia">Familia</label>
+                                        <select class="form-select" id="familia" name="familia">
+                                            <option selected disabled value="">Selecciona una opción</option>
+                                            <option>Liliaceae</option>
+                                            <option>Asteraceae</option>
+                                            <option>Zingiberaceae</option>
+                                            <option>Rosaceae</option>
+                                            <option>Pinaceae</option>
+                                            <option>Asparagaceae</option>
+                                            <option>Lamiaceae</option>
+                                            <option>EjemploFamilia One</option>
+                                            <option>EjemploFamilia Two</option>
+                                            <option>EjemploFamilia Three</option>
+                                        </select>
+                                        <div class="invalid-feedback">
+                                            Por favor, selecciona una familia.
+                                        </div>
+                                    </div>
+
+                                    <div class="input-group mb-3">
+                                        <label class="input-group-text" for="genero">Género</label>
+                                        <select class="form-select" id="genero" name="genero">
+                                            <option selected disabled value="">Selecciona una opción</option>
+                                            <option>EjemploGénero One</option>
+                                            <option>EjemploGénero Two</option>
+                                            <option>EjemploGénero Three</option>
+                                            <option>Agave</option>
+                                            <option>Tagetes</option>
+                                            <option>Zingiber</option>
+                                            <option>Fragaria</option>
+                                            <option>Pinus</option>
+                                            <option>Sansevieria</option>
+                                            <option>Mentha</option>
+                                        </select>
+                                        <div class="invalid-feedback">
+                                            Por favor, selecciona un género.
+                                        </div>
+                                    </div>
+
+                                    <div class="input-group mb-3">
+                                        <label class="input-group-text" for="especie">Especie</label>
+                                        <select class="form-select" id="especie" name="especie">
+                                            <option selected disabled value="">Selecciona una opción</option>
+                                            <option>EjemploEspecie One</option>
+                                            <option>EjemploEspecie Two</option>
+                                            <option>EjemploEspecie Three</option>
+                                            <option>Agave tequilana</option>
+                                            <option>Tagetes erecta</option>
+                                            <option>Zingiber officinale</option>
+                                            <option>Fragaria x ananassa</option>
+                                            <option>Pinus sylvestris</option>
+                                            <option>Sansevieria trifasciata</option>
+                                            <option>Mentha piperita</option>
+                                        </select>
+                                        <div class="invalid-feedback">
+                                            Por favor, selecciona una especie.
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block">Realizar Búsqueda Avanzada</button>
+            </form>
+        </div>
+
+        <div class="card-body">
+            {{#if results.length}}
+                <!-- Mostrar resultados -->
+                <h5 class="card-title">Resultados</h5>
+                {{#if searchTerm}}
+                <h2>Resultados para "{{searchTerm}}":</h2>
+                {{/if}}
+                <p class="mb-2 ">Número de resultados: {{totalResults}}</p>
+                <ol class="list-group list-group-numbered">     
+                    {{#each results}}
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="ms-2 me-auto">
+                                <div class="fw-bold"><a href="#">{{Nombre_Comun}}</a></div>
+                                {{Especie}}
+                            </div>
+                            <span class="badge bg-primary rounded-pill">{{idCatalogo_Taxonomia}}</span>
+                        </li>
+                    {{/each}}
+                </ol>
+
+                <!-- Paginación -->
+                <nav aria-label="Resultados de búsqueda">
+                    <ul class="pagination">
+                        {{#if hasPrevPage}}
+                            <li class="page-item">
+                                <a class="page-link" href="?page={{prevPage}}" aria-label="Anterior">
+                                    <span aria-hidden="true">&laquo; Anterior</span>
+                                </a>
+                            </li>
+                        {{/if}}
+
+                        {{#if hasNextPage}}
+                            <li class="page-item">
+                                <a class="page-link" href="?page={{nextPage}}" aria-label="Siguiente">
+                                    <span aria-hidden="true">Siguiente &raquo;</span>
+                                </a>
+                            </li>
+                        {{/if}}
+                    </ul>
+                </nav>
+
+            {{else}}
+                <!-- No se encontraron resultados -->
+                <p class="mt-3">No se encontraron resultados.</p>
+            {{/if}}
+        </div>
+
+<script>
+    document.getElementById("btnBusquedaAvanzada").addEventListener("click", function () {
+        document.getElementById("busquedaAvanzadaForm").style.display = "block";
+    });
+
+</script>

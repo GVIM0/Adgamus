@@ -386,6 +386,7 @@ CREATE TABLE IF NOT EXISTS `Adgamus`.`Consume` (
     ON UPDATE NO ACTION
 ) ENGINE = InnoDB;
 
+use Adgamus;
 select * from Usuario;
 select * from Cultivo;
  select * from Catalogo_Taxonomia_C;
