@@ -9,7 +9,7 @@ const handlebars = require('handlebars');
 
 const loginRoutes = require("./routes/login");
 const adminRoutes = require("./routes/admin");
-const generalRoutes = require("./routes/general");
+const generalRoutes = require("./routes/navigation");
 
 
 const app = express();
