@@ -8,7 +8,7 @@ function login(req, res){
 
     } else{
 
-        res.redirect('/');
+        res.redirect('/Adgamus');
     }
 }
 
