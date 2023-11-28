@@ -52,7 +52,7 @@ function auth(req, res) {
                             else{
                                 req.session.loggedin = true;
                                 req.session.name = element.NombreUsuario;
-                                res.redirect('/');
+                                res.redirect('/Adgamus/');
                             }
    
                             
@@ -75,7 +75,7 @@ function register(req, res){
 
     } else{
 
-        res.redirect('/');
+        res.redirect('/Adgamus/');
     }
 }
 
@@ -120,7 +120,7 @@ function storeUser(req, res) {
                     req.session.name = data.NombreUsuario;
                     
 
-                    res.redirect('/');
+                    res.redirect('/Adgamus/');
                 });
             });
         });
