@@ -47,7 +47,7 @@ function auth(req, res) {
                                 req.session.loggedin = true;
                                 req.session.name = element.NombreUsuario;
                                 req.session.admin = element.Administrador;
-                                res.redirect('/');
+                                res.redirect('/Adgamus/');
                             }
                             else{
                                 req.session.loggedin = true;
