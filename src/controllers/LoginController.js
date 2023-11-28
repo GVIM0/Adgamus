@@ -75,7 +75,7 @@ function register(req, res){
 
     } else{
 
-        res.redirect('/Adgamus/');
+        res.redirect('/');
     }
 }
 
