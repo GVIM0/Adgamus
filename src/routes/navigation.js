@@ -3,6 +3,8 @@ const express = require('express');
 const GeneralController = require('../controllers/GeneralController');
 const FarmingController = require('../controllers/FarmingController');
 const PunnetController = require('../controllers/PunnetController');
+const RecursosController = require('../controllers/RecursosController');
+const UserController = require('../controllers/UserController');
 
 const router = express.Router();
 
@@ -23,6 +25,12 @@ router.get('/BusquedaAvanzada', FarmingController.advancedSearch);
 
 router.get('/SeleccionArtificial', PunnetController.inicioAnimal);
 
+//Modulo Recursos
 
+router.get('/Recursos', RecursosController.inicioRecursos);
+
+
+//User
+router.get('/Perfil', UserController.perfil);
 
 module.exports = router;

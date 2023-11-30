@@ -1,14 +1,14 @@
 const bcrypt = require('bcrypt');
 
-function login(req, res) {
+function login(req, res){
 
-    if (req.session.loggedin != true) {
+    if(req.session.loggedin != true){
 
         res.render('login/index');
 
-    } else {
+    } else{
 
-        res.redirect('/');
+        res.redirect('/Adgamus/');
     }
 }
 
@@ -43,19 +43,19 @@ function auth(req, res) {
                             res.render('login/index', { error: 'Error: ¡Contraseña incorrecta!' });
                         } else {
                             let admin = element.Administrador
-                            if (admin === 1) {
+                            if(admin === 1){
                                 req.session.loggedin = true;
                                 req.session.name = element.NombreUsuario;
                                 req.session.admin = element.Administrador;
-                                res.redirect('/');
+                                res.redirect('/Adgamus/');
                             }
-                            else {
+                            else{
                                 req.session.loggedin = true;
                                 req.session.name = element.NombreUsuario;
-                                res.redirect('/');
+                                res.redirect('/Adgamus/');
                             }
-
-
+   
+                            
                         }
                     });
                 });
@@ -67,13 +67,13 @@ function auth(req, res) {
 }
 
 
-function register(req, res) {
+function register(req, res){
 
-    if (req.session.loggedin != true) {
+    if(req.session.loggedin != true){
 
         res.render('login/register');
 
-    } else {
+    } else{
 
         res.redirect('/');
     }
@@ -118,9 +118,9 @@ function storeUser(req, res) {
 
                     req.session.loggedin = true;
                     req.session.name = data.NombreUsuario;
+                    
 
-
-                    res.redirect('/');
+                    res.redirect('/Adgamus/');
                 });
             });
         });
@@ -128,13 +128,13 @@ function storeUser(req, res) {
 }
 
 
-function logout(req, res) {
-    if (req.session.loggedin == true) {
+function logout(req, res){
+    if(req.session.loggedin == true){
 
         req.session.destroy();
     }
-    res.redirect('login');
-
+        res.redirect('login');
+    
 }
 
 module.exports = {
@@ -142,5 +142,5 @@ module.exports = {
     register,
     storeUser,
     auth,
-    logout,
+    logout,  
 }
