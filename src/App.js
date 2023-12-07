@@ -20,7 +20,7 @@ const server = require('http').Server(app);
 const socketio = require('socket.io')(server);
 
 
-app.set("port", process.env.PORT || 4000);
+app.set("port", process.env.PORT || 2309);
 
 //Ejecutar la funcion de sockets.js
 require('./controllers/sockets')(socketio);
