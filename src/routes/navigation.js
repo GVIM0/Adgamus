@@ -5,7 +5,7 @@ const FarmingController = require('../controllers/FarmingController');
 const PunnetController = require('../controllers/PunnetController');
 const RecursosController = require('../controllers/RecursosController');
 const UserController = require('../controllers/UserController');
-const ChatController = require('../controllers/chatController');
+const ChatController = require('../controllers/ChatController');
 const SocketController = require('../controllers/sockets');
 
 const router = express.Router();
