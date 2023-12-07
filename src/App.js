@@ -6,6 +6,8 @@ const session = require("express-session");
 const bodyParser = require("body-parser");
 const handlebars = require('handlebars');
 
+const path = require('path');
+
 
 const loginRoutes = require("./routes/login");
 const adminRoutes = require("./routes/admin");
@@ -13,7 +15,15 @@ const generalRoutes = require("./routes/navigation");
 
 
 const app = express();
-app.set("port", 4000);
+
+const server = require('http').Server(app);
+const socketio = require('socket.io')(server);
+
+
+app.set("port", process.env.PORT || 4000);
+
+//Ejecutar la funcion de sockets.js
+require('./controllers/sockets')(socketio);
 
 app.set("views", __dirname + "/views");
 app.engine(
@@ -40,8 +50,8 @@ app.use(bodyParser.json());
 const dbConfig = {
   host: "localhost",
   user: "root",
-  password: "1234",
-  port: "3306",
+  password: "n0m3l0",
+  port: "3308",
   database: "Adgamus",
 };
 
@@ -69,10 +79,12 @@ app.use(
     secret: "secret",
     resave: true,
     saveUninitialized: true,
+    secure: true,
+    httpOnly: true
   })
 );
 
-app.listen(app.get("port"), () => {
+server.listen(app.get("port"), () => {
   console.log("Listening on port", app.get("port"));
 });
 

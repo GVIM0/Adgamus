@@ -277,30 +277,6 @@ article p {
   font-weight: 300;
 }
 
-/*FOOTER*/
-footer .title_section {
-  color: #57590f;
-}
-.containerF {
-  padding: 0px 0px;
-}
-footer .copy {
-  color: #000;
-}
-.redes_sociales {
-  display: flex;
-  justify-content: center;
-}
-.redes_sociales i {
-  font-size: 30px;
-  padding: 0 20px;
-}
-.redes_sociales i:hover {
-  transform: scale(1.1);
-}
-.redes sociales a:link {
-  text-decoration: none;
-}
 /*ELEMENTOS RESPONSIVOS*/
 
 .icon__menu {

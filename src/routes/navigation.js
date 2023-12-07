@@ -5,6 +5,8 @@ const FarmingController = require('../controllers/FarmingController');
 const PunnetController = require('../controllers/PunnetController');
 const RecursosController = require('../controllers/RecursosController');
 const UserController = require('../controllers/UserController');
+const ChatController = require('../controllers/chatController');
+const SocketController = require('../controllers/sockets');
 
 const router = express.Router();
 
@@ -13,6 +15,10 @@ const router = express.Router();
 //General
 
 router.get('/ajustes', GeneralController.Ajustes);
+router.get('/ChatDeAyuda', ChatController.ChatAyuda);
+
+//Sockets
+
 
 //Modulo cultivo
 
