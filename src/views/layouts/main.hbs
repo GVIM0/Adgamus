@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adgamus</title>
-    <link rel="shortcut icon" href="/public/IMG/AdgamusLogo1.png"/>
+    <link rel="shortcut icon" href="/Adgamus/public/IMG/AdgamusLogo1.png"/>
 
     <!-- Bootstrap Link -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">    
@@ -20,8 +20,8 @@
     <!-- SweetAlert2 JS -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10" async></script>
     <!-- Package public -->
-    <link rel="stylesheet" type="text/css" href="/public/CSS/EstiloCSS.css">
-    <link rel="stylesheet" type="text/css" href="/public/CSS/FondoCSS.css">
+    <link rel="stylesheet" type="text/css" href="/Adgamus/public/CSS/EstiloCSS.css">
+    <link rel="stylesheet" type="text/css" href="/Adgamus/public/CSS/FondoCSS.css">
     <!-- Handlebars.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
  
@@ -40,27 +40,27 @@
                             <i class="fas fa-bars icon__menu"><a href="#"></a></i>
                     </label>
                     <ul>
-                                <li><a href="/" id="selected"></a></li>
+                                <li><a href="/Adgamus/" id="selected"></a></li>
                                 <li><a href="#">Gestión</a>
                                     <ul>
-                                        <li><a href="/CRUDplantas">Plantas</a></li>
+                                        <li><a href="/Adgamus/CRUDplantas">Plantas</a></li>
                                         <li><a href="#">Animales</a></li>
                                         <li><a href="#">Recusros</a></li>
                                         <li><a href="#">Usuarios</a></li>
                                         <li><a href="#">Publicaciones</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="/ChatDeAyuda">Atender Cliente</a></li>
-                                <li><a href="/SeleccionArtificial">Opción</a></li>
-                                <li><a href="/ajustes">Ajustes </a></li>
+                                <li><a href="/Adgamus/ChatDeAyuda">Atender Cliente</a></li>
+                                <li><a href="/Adgamus/SeleccionArtificial">Opción</a></li>
+                                <li><a href="/Adgamus/ajustes">Ajustes </a></li>
 
                                 <li class="nav-item px-4">
-                                    <a href="/Perfil" class="nav-link-name">
+                                    <a href="/Adgamus/Perfil" class="nav-link-name">
                                     {{name}}
                                     </a>
                                 </li>
                                 <li class="nav-item px-4"> 
-                                    <a href="/logout" class="nav-link-logout">Cerrar Sesión</a>
+                                    <a href="/Adgamus/logout" class="nav-link-logout">Cerrar Sesión</a>
                                 </li>
                     </ul>
                 </nav>
@@ -71,26 +71,26 @@
                             <i class="fas fa-bars icon__menu"></i>
                     </label>
                     <ul>
-                                <li><a href="/" id="selected"></a></li>
+                                <li><a href="/Adgamus/" id="selected"></a></li>
                                 <li><a href="#">Otras opciones</a>
                                     <ul>
-                                        <li><a href="/ajustes">Ajustes</a></li>
+                                        <li><a href="/Adgamus/ajustes">Ajustes</a></li>
                                         <li><a href="#">Red</a></li>
                                         <li><a href="#">Mensajes</a></li>
                                         <li><a href="#">Políticas de uso</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="/CuidadoDeCultivos">Cuidado de cultivos</a></li>
-                                <li><a href="/SeleccionArtificial">Seleccion artificial</a></li>
-                                <li><a href="/Recursos">Recursos</a></li>
+                                <li><a href="/Adgamus/CuidadoDeCultivos">Cuidado de cultivos</a></li>
+                                <li><a href="/Adgamus/SeleccionArtificial">Seleccion artificial</a></li>
+                                <li><a href="/Adgamus/Recursos">Recursos</a></li>
 
                                 <li class="nav-item px-4">
-                                    <a href="/Perfil" class="nav-link-name">
+                                    <a href="/Adgamus/Perfil" class="nav-link-name">
                                     {{name}}
                                     </a>
                                 </li>
                                 <li class="nav-item px-4"> 
-                                    <a href="/logout" class="nav-link-logout">Cerrar Sesión</a>
+                                    <a href="/Adgamus/logout" class="nav-link-logout">Cerrar Sesión</a>
                                 </li>
                     </ul>
                 </nav>
@@ -105,10 +105,10 @@
                         <ul>
                             <li><a href="#" id="selected"></a></li>
                             <li>
-                                <a href="/login" class="nav-link-login ">Iniciar Sesión</a>
+                                <a href="/Adgamus/login" class="nav-link-login ">Iniciar Sesión</a>
                             </li>
                             <li> 
-                                <a href="/register" class="nav-link-register  ">Registrarse</a>
+                                <a href="/Adgamus/register" class="nav-link-register  ">Registrarse</a>
                             </li>
                         </ul>
                 </nav>
@@ -133,7 +133,7 @@
             <div class="col-6 col-md-2 mb-3">
                 <h5>SOPORTE</h5>
                 <ul class="nav flex-column">
-                    <li class="nav-item mb-2"><a href="/ChatDeAyuda" class="nav-link p-0 text-muted">Chat de ayuda</a></li>
+                    <li class="nav-item mb-2"><a href="/Adgamus/ChatDeAyuda" class="nav-link p-0 text-muted">Chat de ayuda</a></li>
                     {{!-- <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
                     <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
                     <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>

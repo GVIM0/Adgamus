@@ -50,8 +50,8 @@ app.use(bodyParser.json());
 const dbConfig = {
   host: "localhost",
   user: "root",
-  password: "n0m3l0",
-  port: "3308",
+  password: "1234",
+  port: "3306",
   database: "Adgamus",
 };
 
@@ -103,7 +103,7 @@ app.get("/", (req, res) => {
       res.render("home", { name: req.session.name, admin: req.session.admin });
     }
   } else {
-    res.redirect("login");
+    res.redirect("/Adgamus/login");
   }
 });
 
