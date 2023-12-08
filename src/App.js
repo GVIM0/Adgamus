@@ -84,8 +84,12 @@ app.use(
   })
 );
 
-server.listen(app.get("port"), () => {
-  console.log("Listening on port", app.get("port"));
+server.listen(app.get("port"), (err) => {
+  if (err) {
+    console.error("Error al intentar iniciar el servidor:", err);
+    return;
+  }
+  console.log("Servidor iniciado en el puerto", app.get("port"));
 });
 
 app.use("/", loginRoutes);
