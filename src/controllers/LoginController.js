@@ -8,7 +8,7 @@ function login(req, res) {
 
     } else {
 
-        res.redirect('/Adgamus/');
+        res.redirect('/');
     }
 }
 
@@ -47,12 +47,12 @@ function auth(req, res) {
                                 req.session.loggedin = true;
                                 req.session.name = element.NombreUsuario;
                                 req.session.admin = element.Administrador;
-                                res.redirect('/Adgamus/');
+                                res.redirect('/');
                             }
                             else {
                                 req.session.loggedin = true;
                                 req.session.name = element.NombreUsuario;
-                                res.redirect('/Adgamus/');
+                                res.redirect('/');
                             }
 
 
@@ -75,7 +75,7 @@ function register(req, res) {
 
     } else {
 
-        res.redirect('/Adgamus/');
+        res.redirect('/');
     }
 }
 
@@ -120,7 +120,7 @@ function storeUser(req, res) {
                     req.session.name = data.NombreUsuario;
 
 
-                    res.redirect('/Adgamus/');
+                    res.redirect('/');
                 });
             });
         });
@@ -133,7 +133,7 @@ function logout(req, res) {
 
         req.session.destroy();
     }
-    res.redirect('/Adgamus/login');
+    res.redirect('/login');
 
 }
 

@@ -1,3 +1,4 @@
+<!-- Ayuda.hbs -->
 <style>
   * {
     box-sizing: border-box;
@@ -10,30 +11,33 @@
     padding-top: 50px;
     background: none;
   }
-  .msg{
-    padding-top: 10px;
-    padding-left: 10px;
+
+  .msg {
+    padding: 10px 10px;
   }
-  .msg b{
-    padding-top: 10px;
+
+  .msg-area b {
+    padding: 10px 10px;
+  }
+
+  .user {
+    cursor: pointer;
+  }
+
+  /* Agrega un estilo para la clase "selected" */
+  .user.selected {
+    background-color: #9ff4c5;
   }
 </style>
 
 <div class="container" id="content-wrap">
-
   <div class="row">
-
     <div class="col-md-7 mt-5">
-
       <div class="card">
-
         <div class="card-header">
-          <h4>Chat de {{name}}</h4>
+          <h4 id="selectedUserName">Chat de {{name}}</h4>
         </div>
-        <div class="card-body" id="chat">
-
-        </div>
-
+        <div class="card-body" id="chat"></div>
         <form id="messages-form" class="card-footer">
           <div class="input-group">
             <input class="form-control" type="text" id="message">
@@ -46,28 +50,29 @@
     </div>
 
     <div class="col-md-3 mt-5">
-
       <div class="card">
         <div class="card-header">
           <h4>Usuarios conectados</h4>
         </div>
         <div class="card-body">
           <div id="userNames">
-
+            <!-- Itera sobre los nombres de usuario -->
+            {{#each nombresUsuarios}}
+              <p id="user_{{@index}}" class="user" data-user="{{this}}">{{this}}</p>
+            {{/each}}
           </div>
         </div>
       </div>
-
     </div>
-
   </div>
-
 </div>
+
 <script>
- const userData = {
+  const userData = {
     name: '{{name}}'
   };
 </script>
+
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 <script src="/socket.io/socket.io.js" charset="utf-8"></script>
 <script src="/controllers/user.js"></script>
