@@ -9,6 +9,7 @@ const handlebars = require('handlebars');
 const path = require('path');
 
 
+const empresa = require('./routes/empresa');
 const loginRoutes = require("./routes/login");
 const adminRoutes = require("./routes/admin");
 const generalRoutes = require("./routes/navigation");
@@ -50,7 +51,7 @@ app.use(bodyParser.json());
 const dbConfig = {
   host: "localhost",
   user: "root",
-  password: "n0m3l0",
+  password: "",
   port: "3308",
   database: "Adgamus",
 };
@@ -89,9 +90,11 @@ server.listen(app.get("port"), (err) => {
     console.error("Error al intentar iniciar el servidor:", err);
     return;
   }
-  console.log("Servidor iniciado en el puerto", app.get("port"));
+  console.log('SERVER UP running in http://localhost:8787');
 });
 
+
+app.use("/", empresa);
 app.use("/", loginRoutes);
 app.use("/", adminRoutes);
 app.use("/", generalRoutes);
