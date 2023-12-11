@@ -51,7 +51,7 @@ app.use(bodyParser.json());
 const dbConfig = {
   host: "localhost",
   user: "root",
-  password: "",
+  password: "n0m3l0",
   port: "3308",
   database: "Adgamus",
 };
