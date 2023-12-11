@@ -90,7 +90,7 @@ server.listen(app.get("port"), (err) => {
     console.error("Error al intentar iniciar el servidor:", err);
     return;
   }
-  console.log('SERVER UP running in http://localhost:8787');
+  console.log('SERVER UP running in port', app.get("port"));
 });
 
 

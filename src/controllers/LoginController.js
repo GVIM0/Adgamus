@@ -8,7 +8,7 @@ function login(req, res) {
 
     } else {
 
-        res.redirect('/');
+        res.redirect('/home');
     }
 }
 
@@ -47,12 +47,12 @@ function auth(req, res) {
                                 req.session.loggedin = true;
                                 req.session.name = element.NombreUsuario;
                                 req.session.admin = element.Administrador;
-                                res.redirect('/');
+                                res.redirect('/home');
                             }
                             else {
                                 req.session.loggedin = true;
                                 req.session.name = element.NombreUsuario;
-                                res.redirect('/');
+                                res.redirect('/home');
                             }
 
 
@@ -75,7 +75,7 @@ function register(req, res) {
 
     } else {
 
-        res.redirect('/');
+        res.redirect('/home');
     }
 }
 
@@ -120,7 +120,7 @@ function storeUser(req, res) {
                     req.session.name = data.NombreUsuario;
 
 
-                    res.redirect('/');
+                    res.redirect('/home');
                 });
             });
         });

@@ -14,6 +14,7 @@ const router = express.Router();
 
 //General
 
+router.get('/home', GeneralController.Home);
 router.get('/ajustes', GeneralController.Ajustes);
 router.get('/ChatDeAyuda', ChatController.ChatAyuda);
 
